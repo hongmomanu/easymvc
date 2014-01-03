@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src="easyui/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
 
     <script data-main="js/mainapp" src="require.js"></script>
 
