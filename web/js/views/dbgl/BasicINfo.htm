@@ -1,0 +1,193 @@
+
+<div class="easyui-panel" title="低保户信息"  style="overflow-x: hidden;" >
+    <div style="padding:30px 30px 30px 30px;">
+        <form id="ff" method="post">
+            <fieldset ><legend>用户基本信息</legend>
+                <div>
+                    <table class="formtable">
+                        <tr>
+                            <td>行政区划:</td>
+                            <td colspan="3"><input class="easyui-combotree" data-options="url:'tree_data1.json',method:'get',required:true"  style="width: 300px;"  name="division"></td>
+                            <td rowspan="4" colspan="2" style="text-align: center;" ><img src="img/noperson.gif" alt="用户照片" height="101" width="91"></td>
+                        </tr>
+                        <tr>
+                            <td>申请类别:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>分类管理:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+
+                        </tr>
+                        <tr>
+                            <td>户主姓名:</td>
+                            <td><input class="easyui-validatebox" id="owername" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>户主身份证:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+
+                        </tr>
+                        <tr>
+                            <td>家庭户口:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>户主户口所在地:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                        </tr>
+                        <tr>
+                            <td>邮政编码:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>实际居住地:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>家庭人数:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+
+                        </tr>
+                        <tr>
+                            <td>联系电话:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>开户银行:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td>开户人:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+
+                        </tr>
+                        <tr>
+                            <td>家庭备注:</td>
+                            <td colspan="5"><textarea name="familyinfo" style="height: 60px;width: 60%;"></textarea></td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </fieldset>
+                <fieldset ><legend>家庭成员信息</legend>
+                    <div style="position: static" title="家庭成员信息" >
+                        <table class="easyui-datagrid" title="家庭成员列表" style="height:150px;position:relative;"
+                               data-options="rownumbers:true,toolbar: '#tb',fit : true,singleSelect:true,showFooter: true">
+                            <thead data-options="frozen:true">
+                            <tr >
+                                <th data-options="field:'itemid'">与户主关系</th>
+                                <th data-options="field:'listprice',width:120,align:'center'">姓名</th>
+                                <!--<th data-options="field:'productid',width:120">与户主关系</th>-->
+
+                            </tr>
+                            </thead>
+                            <thead>
+                            <tr>
+
+                                <th data-options="field:'unitcost',width:90,align:'right'">身份证</th>
+                                <th data-options="field:'attr1',width:250">性别</th>
+                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                                <th data-options="field:'attr1',width:250">性别</th>
+                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                                <th data-options="field:'attr1',width:250">性别</th>
+                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                                <th data-options="field:'attr1',width:250">性别</th>
+                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div id="tb" style="height:auto">
+                            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+                            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+
+            <fieldset><legend>住房信息</legend>
+                <div >
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input class="easyui-validatebox" type="text" name="name" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Subject:</td>
+                            <td><input class="easyui-validatebox" type="text" name="subject" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Message:</td>
+                            <td><textarea name="message" style="height:60px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Language:</td>
+                            <td>
+                                <select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </fieldset>
+            <fieldset><legend>家庭财产信息</legend>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input class="easyui-validatebox" type="text" name="name" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Subject:</td>
+                            <td><input class="easyui-validatebox" type="text" name="subject" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Message:</td>
+                            <td><textarea name="message" style="height:60px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Language:</td>
+                            <td>
+                                <select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </fieldset>
+            <fieldset><legend>审批信息</legend>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input class="easyui-validatebox" type="text" name="name" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Subject:</td>
+                            <td><input class="easyui-validatebox" type="text" name="subject" data-options="required:true"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Message:</td>
+                            <td><textarea name="message" style="height:60px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Language:</td>
+                            <td>
+                                <select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </fieldset>
+
+
+
+        </form>
+    </div>
+    <div style="text-align:center;padding:5px">
+        <a href="javascript:void(0)" class="easyui-linkbutton" >提交</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" >取消</a>
+    </div>
+</div>
