@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
 
-<div class="easyui-panel" title="低保户信息"  style="overflow-x: hidden;" >
+
+<div class="easyui-panel" title="低保户信息"  >
     <div style="padding:30px 30px 30px 30px;">
         <form id="ff" method="post">
             <fieldset ><legend>用户基本信息</legend>
@@ -57,41 +64,41 @@
                 </div>
 
             </fieldset>
-                <fieldset ><legend>家庭成员信息</legend>
-                    <div style="position: static" title="家庭成员信息" >
-                        <table class="easyui-datagrid" title="家庭成员列表" style="height:150px;position:relative;"
-                               data-options="rownumbers:true,toolbar: '#tb',fit : true,singleSelect:true,showFooter: true">
-                            <thead data-options="frozen:true">
-                            <tr >
-                                <th data-options="field:'itemid'">与户主关系</th>
-                                <th data-options="field:'listprice',width:120,align:'center'">姓名</th>
-                                <!--<th data-options="field:'productid',width:120">与户主关系</th>-->
+            <fieldset ><legend>家庭成员信息</legend>
+                <div style="position: static" title="家庭成员信息" >
+                    <table class="easyui-datagrid" title="家庭成员列表" style="height:150px;position:relative;"
+                           data-options="rownumbers:true,toolbar: '#tb',fit : true,singleSelect:true,showFooter: true">
+                        <thead data-options="frozen:true">
+                        <tr >
+                            <th data-options="field:'itemid'">与户主关系</th>
+                            <th data-options="field:'listprice',width:120,align:'center'">姓名</th>
+                            <!--<th data-options="field:'productid',width:120">与户主关系</th>-->
 
-                            </tr>
-                            </thead>
-                            <thead>
-                            <tr>
+                        </tr>
+                        </thead>
+                        <thead>
+                        <tr>
 
-                                <th data-options="field:'unitcost',width:90,align:'right'">身份证</th>
-                                <th data-options="field:'attr1',width:250">性别</th>
-                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
-                                <th data-options="field:'attr1',width:250">性别</th>
-                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
-                                <th data-options="field:'attr1',width:250">性别</th>
-                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
-                                <th data-options="field:'attr1',width:250">性别</th>
-                                <th data-options="field:'status',width:60,align:'center'">出生年月</th>
-                            </tr>
-                            </thead>
-                        </table>
-                        <div id="tb" style="height:auto">
-                            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
-                            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
-                        </div>
+                            <th data-options="field:'unitcost',width:90,align:'right'">身份证</th>
+                            <th data-options="field:'attr1',width:250">性别</th>
+                            <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                            <th data-options="field:'attr1',width:250">性别</th>
+                            <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                            <th data-options="field:'attr1',width:250">性别</th>
+                            <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                            <th data-options="field:'attr1',width:250">性别</th>
+                            <th data-options="field:'status',width:60,align:'center'">出生年月</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div id="tb" style="height:auto">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增家庭成员</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true,disabled:true">删除家庭成员</a>
                     </div>
+                </div>
 
 
-                </fieldset>
+            </fieldset>
 
 
             <fieldset><legend>住房信息</legend>
@@ -191,3 +198,7 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" >取消</a>
     </div>
 </div>
+
+
+</body>
+</html>

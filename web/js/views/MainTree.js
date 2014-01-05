@@ -16,10 +16,12 @@ define(function(){
                     state: 'closed',
                     children: [{
                         id:1,
-                        text: '业务申请1'
+                        text: '业务申请1',
+                        value:'views/dbgl/BasicInfo'
                     },{
                         id:2,
-                        text: '业务办理'
+                        text: '业务办理',
+                        value:'views/dbgl/BusinessGrid'
                     }]
                 },{
                     text: 'Item2',
