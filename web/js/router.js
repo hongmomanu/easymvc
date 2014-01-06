@@ -3,9 +3,10 @@
  */
 define(function(){
 
-    var routes = [{hash:'#mainview', controller:'MainViewController'}/*,
+    var routes = [{hash:'#menu_shjz', controller:'MainViewController'}/*,
         {hash:'#add',  controller:'AddController'}*/];
-    var defaultRoute = '#mainview';
+    //var defaultRoute = '#mainview';
+    var defaultRoute ='';
     var currentHash = '';
 
     function startRouting(){

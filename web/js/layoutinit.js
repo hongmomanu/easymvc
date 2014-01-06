@@ -16,7 +16,7 @@ define(function(){
     }
 
 
-    $(function() {
+    function inithead() {
         var themes = {
             'gray' : 'easyui/themes/gray/easyui.css',
             'black' : 'easyui/themes/black/easyui.css',
@@ -48,9 +48,33 @@ define(function(){
             $this.addClass('cs-skin-on');
             skin == 'dark-hive' ? $('.cs-north-logo').css('color', '#FFFFFF') : $('.cs-north-logo').css('color', '#000000');
         }
-    });
+    }
 
 
+    //$('#routermenu').hide()
+    //$('#routermenu').attr("href",'#mainview');
+    //$('#routermenu').click();
 
+    function initroutnavigation(){
+        $('#routermenu').combobox({
+            onBeforeLoad: function(param){
+                param.roleid=roleid;
+                param.type="系统菜单";
+            },
+            onSelect: function(rec){
+                var router='#'+rec.value;
+                window.location.hash=router;
+                $('#cc2').combobox('reload', url);
+            },
+            onLoadSuccess:function(){
+                $('#routermenu').combobox('select',$('#routermenu').combobox('getData')[0].value);
+            }
+        });
+    }
+
+     return {
+         inithead :inithead,
+         initroutnavigation:initroutnavigation
+     }
 
 })
