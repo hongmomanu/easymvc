@@ -62,9 +62,12 @@ define(function(){
                 param.type="系统菜单";
             },
             onSelect: function(rec){
+
+
+                $('#westpanel').panel('refresh','js/views/navigation/'+rec.value+'.html');
                 var router='#'+rec.value;
                 window.location.hash=router;
-                $('#cc2').combobox('reload', url);
+
             },
             onLoadSuccess:function(){
                 $('#routermenu').combobox('select',$('#routermenu').combobox('getData')[0].value);

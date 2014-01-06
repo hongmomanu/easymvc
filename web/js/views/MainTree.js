@@ -10,23 +10,25 @@ define(function(){
             var tree=$('#dbglacc').tree({
                 //url:'tree_data.json'
                 onClick: me.itemclick,
-                data: [{
-                    text: '审批系统',
-                    id:0,
-                    state: 'closed',
-                    children: [{
-                        id:1,
-                        text: '业务申请',
-                        value:'views/dbgl/BasicInfo'
-                    },{
-                        id:2,
-                        text: '业务办理',
-                        value:'views/dbgl/BusinessGrid'
-                    }]
-                },{
-                    text: 'Item2',
-                    state: 'closed'
-                }]
+                onBeforeExpand:function(node){
+                    this.searchtype=node.text;
+
+                },
+                onLoadSuccess:function(node, data){
+
+                },
+                onBeforeLoad:function(node, param){
+                    param.roleid=roleid;
+                    //param.leaf=true;
+                    if(this.searchtype){
+                        param.leaf=true;
+                    }else{
+                        this.searchtype="";
+                    }
+                    param.type=$('#dbglacc').attr('name')+this.searchtype;
+                },
+                url:'ajax/gettreefuncsbyrule.jsp'
+
             });
             me.tree=tree;
 

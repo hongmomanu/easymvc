@@ -39,7 +39,7 @@
 
     </script>
 </head>
-<body class="easyui-layout">
+<body class="easyui-layout" id="mainlayoutpanel">
 <div region="north" border="true" class="cs-north" >
     <div class="cs-north-bg">
         <div class="cs-north-logo">社会救助管理系统</div>
@@ -62,8 +62,8 @@
 
     </div>
 </div>
-<div region="west" border="true" split="true" title="Navigation" class="cs-west">
-    <div class="easyui-accordion" fit="true" border="false">
+<div region="west" id="westpanel" border="true" split="true" title="Navigation" class="cs-west">
+    <%--<div class="easyui-accordion" id="menu_shjz" fit="true" border="false">
         <div title="低保管理" id="dbglacc">
 
         </div>
@@ -71,7 +71,7 @@
         </div>
         <div title="临时救助">
         </div>
-    </div>
+    </div>--%>
 </div>
 <div id="mainPanle" region="center" border="true" border="false">
     <div id="tabs" class="easyui-tabs"   fit="true" border="false" >
