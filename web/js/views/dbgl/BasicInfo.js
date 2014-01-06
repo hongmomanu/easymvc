@@ -1,17 +1,15 @@
 /**
  * Created by jack on 13-12-31.
  */
-define(function(){
+define(['commonfuncs/PersonidValidator'],function(PersonidValidator){
 
     function render(parameters){
-
         $.extend($.fn.validatebox.defaults.rules, {
             personid: {
-                validator: IdentityCodeValid,
+                validator: PersonidValidator.IdentityCodeValid,
                 message: '身份证不合法,请确认身份证是否正确输入!'
             }
         });
-
         $('#owername').blur(function() {
             require(['jqueryplugin/jquery-scrollto'], function(jqueryscroll){
                 $('#formcontentpanel').scrollTo($('#familymembersdiv'));
@@ -20,7 +18,6 @@ define(function(){
                 $('#familymembersgrid').datagrid('selectRow', editIndex)
                     .datagrid('beginEdit', editIndex);
             } );
-
        });
 
        $('#personimg').click(function() {
@@ -34,15 +31,12 @@ define(function(){
             var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
             $('#familymembersgrid').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
-
        });
 
         $('#delfamilymemer_btn').bind('click', function(){
             var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
             $('#familymembersgrid').datagrid('deleteRow',editIndex);
-
         });
-
 
 
     }

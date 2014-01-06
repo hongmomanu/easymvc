@@ -1,7 +1,7 @@
 /**
  * Created by jack on 13-12-31.
  */
-define(['views/MainTree'], function(MainTree){
+define(['views/MainTree','commonfuncs/LoadingMask'], function(MainTree,LoadingMask){
 
     function start(){
         //MainView.render({users:users});
@@ -10,7 +10,7 @@ define(['views/MainTree'], function(MainTree){
             if(MainTree.tree.tree('isLeaf', node.target)){
                 if(!$('#tabs').tabs('exists',1)||this.nodeid!=node.id){
 
-                    ajaxLoading();
+                    LoadingMask.ajaxLoading();
                     require(['text!'+node.value+'.htm',node.value], function(basicinfo,basicinfojs){
                         var options= {
                             title: node.text,
@@ -24,7 +24,7 @@ define(['views/MainTree'], function(MainTree){
 
                         }
                         $('#tabs').tabs('add',options);
-                        ajaxLoadEnd();
+                        LoadingMask.ajaxLoadEnd();
                         /**/
                         basicinfojs.render();
 
