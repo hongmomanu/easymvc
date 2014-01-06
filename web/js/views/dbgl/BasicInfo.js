@@ -5,14 +5,21 @@ define(function(){
 
     function render(parameters){
 
-       $('#owername').blur(function() {
-           //alert( "Handler for .blur() called." );
-           $($('#tabs').tabs('getSelected')).stop().scrollTo(200,10);
-           $('#familymembersgrid').datagrid('appendRow',{status:'P',owername:$('#owername').val(),owership:'户主'});
-           var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
-           $('#familymembersgrid').datagrid('selectRow', editIndex)
-               .datagrid('beginEdit', editIndex);
-           //alert(editIndex);
+        $.extend($.fn.validatebox.defaults.rules, {
+            personid: {
+                validator: IdentityCodeValid,
+                message: '身份证不合法,请确认身份证是否正确输入!'
+            }
+        });
+
+        $('#owername').blur(function() {
+            require(['jqueryplugin/jquery-scrollto'], function(jqueryscroll){
+                $('#formcontentpanel').scrollTo($('#familymembersdiv'));
+                $('#familymembersgrid').datagrid('appendRow',{status:'P',owername:$('#owername').val(),owership:'户主'});
+                var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
+                $('#familymembersgrid').datagrid('selectRow', editIndex)
+                    .datagrid('beginEdit', editIndex);
+            } );
 
        });
 
@@ -22,6 +29,19 @@ define(function(){
        $('#imgwin_cancel').bind('click', function(){
            $('#imgwin').window('close');
        });
+        $('#newfamilymemer_btn').bind('click', function(){
+            $('#familymembersgrid').datagrid('appendRow',{status:'P',owername:'',owership:'其它'});
+            var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
+            $('#familymembersgrid').datagrid('selectRow', editIndex)
+                .datagrid('beginEdit', editIndex);
+
+       });
+
+        $('#delfamilymemer_btn').bind('click', function(){
+            var editIndex = $('#familymembersgrid').datagrid('getRows').length-1;
+            $('#familymembersgrid').datagrid('deleteRow',editIndex);
+
+        });
 
 
 

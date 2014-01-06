@@ -1,6 +1,6 @@
 
-<div class="easyui-panel" title="低保户信息"  >
-    <div style="padding:30px 30px 30px 30px;">
+<div class="easyui-panel" id="formcontentpanel" title="低保户信息" data-options="fit:true"  >
+    <div style="padding:10px 30px 30px 30px;" >
         <form id="ff" method="post">
             <fieldset ><legend>用户基本信息</legend>
                 <div>
@@ -12,21 +12,22 @@
                         </tr>
                         <tr>
                             <td>申请类别:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
                             <td>分类管理:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
 
                         </tr>
                         <tr>
                             <td>户主姓名:</td>
-                            <td><input class="easyui-validatebox" id="owername" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" id="owername" type="text" name="email" data-options="required:true"></td>
                             <td>户主身份证:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="owerid"
+                                       data-options="required:true,invalidMessage:'请输入正确身份证号!',validType:'personid'"></td>
 
                         </tr>
                         <tr>
                             <td>家庭户口:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
                             <td>户主户口所在地:</td>
                             <td><input  type="text" name="email"></td>
                         </tr>
@@ -36,14 +37,14 @@
                             <td>实际居住地:</td>
                             <td><input  type="text" name="email" ></td>
                             <td>家庭人数:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
 
                         </tr>
                         <tr>
                             <td>联系电话:</td>
                             <td><input  type="text" name="email" ></td>
                             <td>开户银行:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
                             <td>开户人:</td>
                             <td><input type="text" name="email"></td>
 
@@ -58,7 +59,7 @@
 
             </fieldset>
                 <fieldset ><legend>家庭成员信息</legend>
-                    <div style="position: static" title="家庭成员信息" >
+                    <div id="familymembersdiv" title="家庭成员信息" >
                         <table class="easyui-datagrid" title="家庭成员列表" id="familymembersgrid" style="height:150px;position:relative;"
                                data-options="rownumbers:true,toolbar: '#tb',singleSelect:true,showFooter: true">
                             <thead data-options="frozen:true">
@@ -86,7 +87,7 @@
                         </table>
                         <div id="tb" style="height:auto">
                             <a id="newfamilymemer_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增家庭成员</a>
-                            <a id="delfamilymemer_btn" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true,disabled:true">删除家庭成员</a>
+                            <a id="delfamilymemer_btn" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true,disabled:false">删除家庭成员</a>
                         </div>
                     </div>
 
@@ -107,9 +108,9 @@
                         </tr>
                         <tr>
                             <td>住房总使用面积(㎡):</td>
-                            <td><input type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input type="text" name="email" data-options="required:true"></td>
                             <td>住房人均使用面积(㎡):</td>
-                            <td><input type="text" name="email" data-options="required:true,validType:'email'"></td>
+                            <td><input type="text" name="email" data-options="required:true"></td>
                         </tr>
 
                     </table>
@@ -148,6 +149,9 @@
                 </div>
 
             </fieldset>
+
+
+
             <fieldset><legend>审批信息</legend>
                 <div>
                     <table>
@@ -157,7 +161,7 @@
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+                            <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></input></td>
                         </tr>
                         <tr>
                             <td>Subject:</td>

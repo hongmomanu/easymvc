@@ -16,7 +16,7 @@ define(function(){
                     state: 'closed',
                     children: [{
                         id:1,
-                        text: '业务申请1',
+                        text: '业务申请',
                         value:'views/dbgl/BasicInfo'
                     },{
                         id:2,
