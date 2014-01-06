@@ -1,3 +1,4 @@
+<%@ page import="Zsmzj.listener.SessionListener" %>
 <%--
   Created by IntelliJ IDEA.
   User: jack
@@ -6,43 +7,86 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    if(request.getSession().getAttribute("username")==null) {
+        response.sendRedirect("login.jsp");
+    }
 
-<%--<!Doctype html>--%>
-<html xmlns=http://www.w3.org/1999/xhtml>
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
 <head>
-    <title>轻量级速度测试</title>
-    <link href="LigerUI/lib/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css" />
-    <link href="LigerUI/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <title>jquery ui测试</title>
+    <link rel="stylesheet" type="text/css" href="easyui/themes/cupertino/easyui.css" id="swicth-style">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="easyui/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script data-main="js/mainapp" src="require.js"></script>
 
-    <script src="LigerUI/lib/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
-    <script src="LigerUI/lib/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*session全局变量*/
+        var onlinenums=<%= SessionListener.size()%>;
+        var userid=<%=request.getSession().getAttribute("userid")%>;
+        var username="<%=request.getSession().getAttribute("username")%>";
+        var roleid=<%=request.getSession().getAttribute("roleid")%>;
+        var displayname="<%=request.getSession().getAttribute("displayname")%>";
+        var divisionpath="<%=request.getSession().getAttribute("divisionpath")%>";
+        var password="<%=request.getSession().getAttribute("password")%>";
+        var divisionid=<%=request.getSession().getAttribute("divisionid")%>;
 
-    <script data-main="js/main" src="require.js"></script>
-    <style type="text/css">
-        body{ padding:10px; margin:0;}
-        #app{  width:100%; margin:40px;  height:400px;
-            margin:0; padding:0;}
 
-        h4{ margin:20px;}
-        .yangshi{
-            max-width: 880px;
-            margin:0 auto;
-            _width:expression((document.documentElement.clientWidth||document.body.clientWidth)<880?"880px":"");
-            overflow:hidden;}
-    </style>
+    </script>
 </head>
-<body>
-     <%--<div id="app"></div>--%>
-     <%--<div class="l-page-top"></div>--%>
-     <div id="app">
-         <div position="left" id="navigation" title="导航栏"></div>
-         <div position="center" id="framecenter" style="overflow:hidden;">
-             <%--<h4>$("#app").ligerLayout({ leftWidth: 200});</h4>
-             <br />
-             如果上面有其他页面元素，layout会自适应调整--%>
+<body class="easyui-layout">
+<div region="north" border="true" class="cs-north" >
+    <div class="cs-north-bg">
+        <div class="cs-north-logo">社会救助管理系统</div>
+        <ul class="ui-skin-nav">
+            <li class="li-skinitem" title="gray"><span class="gray" rel="gray"></span></li>
+            <li class="li-skinitem" title="default"><span class="default" rel="default"></span></li>
+            <li class="li-skinitem" title="bootstrap"><span class="bootstrap" rel="bootstrap"></span></li>
+            <li class="li-skinitem" title="black"><span class="black" rel="black"></span></li>
+            <li class="li-skinitem" title="metro"><span class="metro" rel="metro"></span></li>
+            <li class="li-skinitem" title="pepper-grinder"><span class="pepper-grinder" rel="pepper-grinder"></span></li>
+            <li class="li-skinitem" title="blue"><span class="blue" rel="blue"></span></li>
+            <li class="li-skinitem" title="cupertino"><span class="cupertino" rel="cupertino"></span></li>
+            <li class="li-skinitem" title="dark-hive"><span class="dark-hive" rel="dark-hive"></span></li>
+            <li class="li-skinitem" title="sunny"><span class="sunny" rel="sunny"></span></li>
+        </ul>
+        <input id="routermenu" class="easyui-combobox" data-options="
+        valueField: 'value',
+        textField: 'name',
+        url: 'ajax/getfuncsbyrule.jsp'">
 
-         </div>
-     </div>
+    </div>
+</div>
+<div region="west" border="true" split="true" title="Navigation" class="cs-west">
+    <div class="easyui-accordion" fit="true" border="false">
+        <div title="低保管理" id="dbglacc">
+
+        </div>
+        <div title="低保边缘">
+        </div>
+        <div title="临时救助">
+        </div>
+    </div>
+</div>
+<div id="mainPanle" region="center" border="true" border="false">
+    <div id="tabs" class="easyui-tabs"   fit="true" border="false" >
+        <div title="主页">
+            <div class="cs-home-remark">
+                <h1>jack的实验室</h1> <br>
+                测试人：jack <br>
+                说明：jQuery ui。
+            </div>
+        </div>
+    </div>
+</div>
+
+<div region="south" border="false" class="cs-south">@hongmomanu@gmail.com</div>
+
+
 </body>
 </html>
