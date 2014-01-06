@@ -64,9 +64,15 @@ define(function(){
             onSelect: function(rec){
 
 
+                $('#westpanel').panel({
+                    onLoad:function(){
+                        var router='#'+rec.value;
+                        window.location.hash=router;
+                    }
+
+                });
                 $('#westpanel').panel('refresh','js/views/navigation/'+rec.value+'.html');
-                var router='#'+rec.value;
-                window.location.hash=router;
+
 
             },
             onLoadSuccess:function(){

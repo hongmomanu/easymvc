@@ -7,9 +7,38 @@ define(function(){
 
         render:function(parameters){
             var me=this;
-            var tree=$('#dbglacc').tree({
+            $('#dbglacc,#dbedgeacc').tree({
                 //url:'tree_data.json'
-                onClick: me.itemclick,
+                onClick: function (node){
+
+                    var tree=$(this);
+                    if(tree.tree('isLeaf', node.target)){
+                        if(!$('#tabs').tabs('exists',1)||this.nodeid!=node.id){
+                            parameters.LoadingMask.ajaxLoading();
+                            require(['text!'+node.value+'.htm',node.value], function(basicinfo,basicinfojs){
+                                var options= {
+                                    title: node.text,
+                                    content: basicinfo,
+                                    closable: true
+                                };
+                                if($('#tabs').tabs('exists',1)){
+
+                                    $('#tabs').tabs('select', 1);
+                                    $('#tabs').tabs('close',1);
+
+                                }
+                                $('#tabs').tabs('add',options);
+                                parameters.LoadingMask.ajaxLoadEnd();
+                                /**/
+                                basicinfojs.render();
+
+                            });
+                            this.nodeid=node.id;
+                        }
+
+                    }
+
+                },
                 onBeforeExpand:function(node){
                     this.searchtype=node.text;
 
@@ -25,7 +54,7 @@ define(function(){
                     }else{
                         this.searchtype="";
                     }
-                    param.type=$('#dbglacc').attr('name')+this.searchtype;
+                    param.type=$(this).attr('name')+this.searchtype;
                 },
                 url:'ajax/gettreefuncsbyrule.jsp'
 
