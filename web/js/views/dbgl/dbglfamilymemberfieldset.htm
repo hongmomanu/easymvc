@@ -1,31 +1,49 @@
 <fieldset ><legend>家庭成员信息</legend>
-    <div id="familymembersdiv" title="家庭成员信息" >
+    <div id="familymembersdiv" title="家庭成员信息">
         <table class="easyui-datagrid" title="家庭成员列表" id="familymembersgrid"
                style="height:150px;position:relative;"
                data-options="rownumbers:true,toolbar:'#familymembertb',singleSelect:true,showFooter: true">
             <thead data-options="frozen:true">
-            <tr >
-                <th data-options="field:'owership',width:210,editor:'text'">与户主关系</th>
-
+            <tr>
+                <th data-options="field:'relationship',width:210,editor:'text'">与户主关系</th>
             </tr>
             </thead>
             <thead>
             <tr>
-                <th data-options="field:'owername',width:120,align:'center',editor:'text'">姓名</th>
-                <th data-options="field:'unitcost',width:90,align:'right',editor:'text'">身份证</th>
-                <th data-options="field:'attr1',width:250,editor:'text'">性别</th>
-                <th data-options="field:'status',width:60,align:'center',editor:'text'">出生年月</th>
-                <th data-options="field:'attr1',width:250,editor:'text'">性别</th>
-                <th data-options="field:'status',width:60,align:'center',editor:'text'">出生年月</th>
-                <th data-options="field:'attr1',width:250,editor:'text'">性别</th>
-                <th data-options="field:'status',width:60,align:'center',editor:'text'">出生年月</th>
-                <th data-options="field:'attr1',width:250,editor:'text'">性别</th>
-                <th data-options="field:'status',width:60,align:'center',editor:'text'">出生年月</th>
+                <th data-options="field:'name',width:90,align:'center',editor:'text'">姓名</th>
+                <th data-options="field:'personid',width:120,align:'right',editor:'text'">身份证</th>
+                <th data-options="field:'sex',width:60,editor:'text'">性别</th>
+                <th data-options="field:'birthday',width:90,align:'center',editor:'text'">出生日期</th>
+                <th data-options="field:'age',width:60,editor:'text'">年龄</th>
+                <th data-options="field:'isenjoyed',width:60,align:'center',editor:'text'">是否享受</th>
+                <th data-options="field:'noenjoyedreason',width:200,editor:'text'">不享受原因</th>
+                <th data-options="field:'persontype',width:60,align:'center',editor:'text'">人员类别</th>
+                <th data-options="field:'jobstatus',width:90,editor:'text'">职业状况</th>
+                <th data-options="field:'bodystatus',width:60,align:'center',editor:'text'">健康状况</th>
+                <th data-options="field:'specialobject',width:60,align:'center',editor:'text'">特定救助对象</th>
+                <th data-options="field:'workunits',width:60,align:'center',editor:'text'">工作单位</th>
+                <th data-options="field:'monthlyincome',width:60,align:'center',editor:'text'">月收入</th>
+                <th data-options="field:'accounttype',width:60,align:'center',editor:'text'">户口性质</th>
+                <th data-options="field:'maritalstatus',width:60,align:'center',editor:'text'">婚姻状况</th>
+                <th data-options="field:'education',width:60,align:'center',editor:'text'">文化程度</th>
+                <th data-options="field:'political',width:60,align:'center',editor:'text'">政治面貌</th>
+                <th data-options="field:'disabledtype',width:60,align:'center',editor:'text'">残疾类别</th>
+                <th data-options="field:'disabledlevel',width:60,align:'center',editor:'text'">残疾等级</th>
+                <th data-options="field:'disablenum',width:60,align:'center',editor:'text'">残疾证号</th>
+                <th data-options="field:'workability',width:60,align:'center',editor:'text'">劳动能力</th>
+                <th data-options="field:'ispension',width:60,align:'center',editor:'text'">养老保险</th>
+                <th data-options="field:'ismedical',width:60,align:'center',editor:'text'">医疗保险</th>
+                <th data-options="field:'medicaltype',width:60,align:'center',editor:'text'">医疗类型</th>
+                <th data-options="field:'medicalnum',width:60,align:'center',editor:'text'">医保卡号</th>
+                <th data-options="field:'isunemployment',width:60,align:'center',editor:'text'">失业保险</th>
+                <th data-options="field:'unemploymentnum',width:60,align:'center',editor:'text'">失业证号</th>
+                <th data-options="field:'other',width:60,align:'center',editor:'text'">备注</th>
             </tr>
             </thead>
         </table>
         <div id="familymembertb" style="height:auto">
             <a id="newfamilymemer_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增家庭成员</a>
+            <a id="newfamilymemer_save" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true">保存</a>
             <a id="delfamilymemer_btn" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true,disabled:false">删除家庭成员</a>
         </div>
     </div>
