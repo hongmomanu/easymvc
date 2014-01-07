@@ -34,6 +34,10 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                     var editIndex = $('#familymembersgrid').datagrid('getRows').length - 1;
                     $('#familymembersgrid').datagrid('selectRow', editIndex)
                         .datagrid('beginEdit', editIndex);
+
+                    require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
+                        familygridfieldsbinds.personidbind(editIndex);
+                    });
                 });
             } else {
                 $('#familymembersgrid').datagrid('updateRow',{
@@ -49,7 +53,6 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
         var editIndex = undefined;
         function endEditing(){
-            console.log(editIndex);
             if (editIndex == undefined){return true}
             if ($('#familymembersgrid').datagrid('validateRow', editIndex)){
                 $('#familymembersgrid').datagrid('endEdit', editIndex);
@@ -60,6 +63,8 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         }
 
+
+
         $('#familymembersgrid').datagrid({
             width: $('#familymembersdiv').width()-15,
             onClickRow:function(index, rowData){
@@ -67,6 +72,12 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                     if (endEditing()){
                         $('#familymembersgrid').datagrid('selectRow', index)
                             .datagrid('beginEdit', index);
+
+                        require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
+                            familygridfieldsbinds.personidbind(index);
+                        });
+
+
                         editIndex = index;
                     } else {
                         $('#familymembersgrid').datagrid('selectRow', editIndex);
