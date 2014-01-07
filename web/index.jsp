@@ -18,12 +18,14 @@
 
 <head>
     <title>jquery ui测试</title>
-    <link rel="stylesheet" type="text/css" href="easyui/themes/cupertino/easyui.css" id="swicth-style">
+    <%--<link rel="stylesheet" type="text/css" href="easyui/themes/cupertino/easyui.css" id="swicth-style">--%>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script type="text/javascript" src="easyui/jquery-1.8.0.min.js"></script>
+    <%--<script type="text/javascript" src="easyui/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
-    <script data-main="js/mainapp" src="require.js"></script>
+    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>--%>
+    <%--<script data-main="js/mainapp" src="require.js"></script>--%>
+    <script type="text/javascript" src="js/config.js"></script>
+
 
     <script type="text/javascript">
         /*session全局变量*/
@@ -38,6 +40,21 @@
 
 
     </script>
+
+    <script>
+        /**加载easyui**/
+
+        document.write('<script type="text/javascript"  src="'+extLocation+
+                'jquery-1.8.0.min.js"><\/script>');
+        document.write('<script type="text/javascript"  src="'+extLocation+
+                'jquery.easyui.min.js"><\/script>');
+        document.write('<script type="text/javascript"  src="'+extLocation+
+                'locale/easyui-lang-zh_CN.js"><\/script>');
+        document.write('<link rel="stylesheet" type="text/css" id="swicth-style" href="'+extLocation+
+                'themes/cupertino/easyui.css"><\/>');//resources/css/ext-all.css
+
+    </script>
+    <script data-main="js/mainapp" src="require.js"></script>
 </head>
 <body class="easyui-layout" id="mainlayoutpanel">
 <div region="north" border="true" class="cs-north" >
@@ -57,21 +74,14 @@
         </ul>
         <input id="routermenu" class="easyui-combobox" data-options="
         valueField: 'value',
+        mode:'remote',
         textField: 'name',
         url: 'ajax/getfuncsbyrule.jsp'">
 
     </div>
 </div>
 <div region="west" id="westpanel" border="true" split="true" title="Navigation" class="cs-west">
-    <%--<div class="easyui-accordion" id="menu_shjz" fit="true" border="false">
-        <div title="低保管理" id="dbglacc">
 
-        </div>
-        <div title="低保边缘">
-        </div>
-        <div title="临时救助">
-        </div>
-    </div>--%>
 </div>
 <div id="mainPanle" region="center" border="true" border="false">
     <div id="tabs" class="easyui-tabs"   fit="true" border="false" >
