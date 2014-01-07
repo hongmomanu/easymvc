@@ -1,0 +1,56 @@
+<fieldset ><legend>用户基本信息</legend>
+    <div>
+        <table class="formtable">
+            <tr>
+                <td>行政区划:</td>
+                <td colspan="3"><input class="easyui-combotree" data-options="url:'tree_data1.json',method:'get',required:true"  style="width: 300px;"  name="division"></td>
+                <td rowspan="4" colspan="2" style="text-align: center;" ><img src="img/noperson.gif" id="personimg" alt="用户照片" height="101" width="91"></td>
+            </tr>
+            <tr>
+                <td>申请类别:</td>
+                <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
+                <td>分类管理:</td>
+                <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
+
+            </tr>
+            <tr>
+                <td>户主姓名:</td>
+                <td><input class="easyui-validatebox" id="owername" type="text" name="email" data-options="required:true"></td>
+                <td>户主身份证:</td>
+                <td><input class="easyui-validatebox" type="text" name="owerid"
+                           data-options="required:true,invalidMessage:'请输入正确身份证号!',validType:'personid'"></td>
+
+            </tr>
+            <tr>
+                <td>家庭户口:</td>
+                <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
+                <td>户主户口所在地:</td>
+                <td><input  type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>邮政编码:</td>
+                <td><input  type="text" name="email" ></td>
+                <td>实际居住地:</td>
+                <td><input  type="text" name="email" ></td>
+                <td>家庭人数:</td>
+                <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
+
+            </tr>
+            <tr>
+                <td>联系电话:</td>
+                <td><input  type="text" name="email" ></td>
+                <td>开户银行:</td>
+                <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true"></td>
+                <td>开户人:</td>
+                <td><input type="text" name="email"></td>
+
+            </tr>
+            <tr>
+                <td>家庭备注:</td>
+                <td colspan="5"><textarea name="familyinfo" style="height: 60px;width: 60%;"></textarea></td>
+
+            </tr>
+        </table>
+    </div>
+
+</fieldset>

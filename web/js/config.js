@@ -683,16 +683,22 @@ var familyheaders={
 
 };
 
+var applyformviewsjs={
+    'dbglapply':[
+         'dbglapply'
+    ]
+};
+
 var applyformviews={
     'dbglapply':[
         'dbglfamilybasicfieldset',
-        'dbglfamilymemberfieldset'/*,
+        'dbglfamilymemberfieldset',
         'dbglfamilymoneyfieldset',
-        'dbglfamilyhousefieldset',
+        'dbglfamilyhousefieldset',/*
         'dbglfamilyinputfieldset',
         'dbglfamilyaffixfieldset',
-        'dbglfamilyapplyfieldset',
-        'dbglapplysubmitfieldset'*/
+        'dbglfamilyapplyfieldset',*/
+        'dbglapplysubmitfieldset'
     ],
     'dbglalter':[
         'dbglfamilybasicfieldset',

@@ -1,0 +1,25 @@
+
+<div class="easyui-panel" id="formcontentpanel" title="低保户信息" data-options="fit:true"  >
+    <div style="padding:10px 30px 30px 30px;" >
+        <form id="mainform" method="post">
+        </form>
+    </div>
+    <div style="text-align:center;padding:5px">
+        <a href="javascript:void(0)" class="easyui-linkbutton" >提交</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" >取消</a>
+    </div>
+
+    <div id="imgwin" class="easyui-window" title="选择头像" style="width:500px;height:160px"
+         data-options="iconCls:'icon-save',modal:true,closed:true">
+
+        <form id="personimg_form" method="POST">
+            图片名称:<input class="easyui-validatebox" type="text" name="name" data-options="required:true"><br>
+            照片:<input type="file" name="my_file" id="my_file" />
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a class="easyui-linkbutton" >提交</a>
+            <a id="imgwin_cancel"  class="easyui-linkbutton" >取消</a>
+        </div>
+
+    </div>
+</div>
