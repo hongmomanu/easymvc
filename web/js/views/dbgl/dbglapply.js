@@ -138,7 +138,6 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                     $('#imgwin').window('close');
                 };
                 var options = {
-                    //target:        '#output1',   // target element(s) to be updated with server response
                     //beforeSubmit:  showRequest,  // pre-submit callback
                     dataType:"json",
                     success: success,  // post-submit callback
@@ -165,7 +164,6 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 $('#familymembersgrid').datagrid('acceptChanges');
             }
         });
-
 
     }
 
