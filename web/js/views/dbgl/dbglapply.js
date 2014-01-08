@@ -22,7 +22,8 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             });
 
         });
-        $('#owername,#owerid').blur(function () {
+        //#owername,
+        $('#owerid').blur(function () {
             if ($('#familymembersgrid').datagrid('getRows').length == 0) {
                 require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
                     $('#formcontentpanel').scrollTo($('#familymembersdiv'));
@@ -106,6 +107,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         ]);
 
+        ('#divisiontree').combotree('setValue',divisionpath);
         $('#divisiontree').combotree({
             //url:'ajax/gettreedivision.jsp',
             method: 'get',
@@ -126,7 +128,40 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 $(this).combobox('reload', url);
             }
 
-        })
+        });
+
+        $('#appformsubmitcancel').click(function(){
+            $('#tabs').tabs('close',1);
+        });
+
+        $('#appformsubmit').click(function(){
+            //$('#tabs').tabs('close',1);
+            $.messager.progress();
+            $('#mainform').form('submit', {
+                url: 'ajax/sendapply.jsp',
+                onSubmit: function(param){
+                    var isValid = $(this).form('validate');
+                    if (!isValid){
+
+                        $.messager.progress('close');	// hide progress bar while the form is invalid
+                    }else{
+                            param.businesstype=businessTableType.dbgl;
+                            param.userid=userid;
+                            param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
+                            param.processstatustype=processstatustype.ok;
+                            param.isprocess=true;
+                            param.affixfiles=$.toJSON([]);//附件数据未获取
+
+                    }
+                    return isValid;
+            },
+            success: function(){
+                $.messager.progress('close');	// hide progress bar while submit successfully
+            }
+        });
+
+            //alert('提交开始');
+        });
 
 
         $('#personimg').click(function () {
@@ -193,7 +228,6 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 $('#familymembersgrid').datagrid('acceptChanges');
             }
         });
-
     }
 
     return {
