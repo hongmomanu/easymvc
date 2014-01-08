@@ -132,6 +132,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
         $('#personimg').click(function () {
             $('#imgwin').window('open');
         });
+
         $('#imgwin_cancel').bind('click', function () {
             $('#imgwin').window('close');
         });
@@ -149,6 +150,29 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                     timeout:   3000
                 };
                 $('#personimg_form').ajaxForm(options).submit() ;
+
+            });
+        });
+        $('#uploadaffixdialog').bind('change',function(){
+            var filename= $(this).val().slice($(this).val().lastIndexOf("\\")+1);
+            $('#uploadaffixname').val(filename);
+        });
+        $('#affixwin_submit').bind('click', function () {
+            require(['jqueryplugin/jquery-form'],function(AjaxFormjs){
+                var success=function(data, jqForm, options)
+                {
+                        $('#affixfilegrid').datagrid('appendRow',{
+                            attachmentname: data.filename,
+                            attachmentpath:data.filepath
+                        });
+                };
+                var options = {
+                    //beforeSubmit:  showRequest,  // pre-submit callback
+                    dataType:"json",
+                    success: success,  // post-submit callback
+                    timeout:   3000
+                };
+                $('#affixwinimg_form').ajaxForm(options).submit() ;
 
             });
         });
