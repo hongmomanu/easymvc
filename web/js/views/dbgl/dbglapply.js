@@ -10,8 +10,14 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 message: '身份证不合法,请确认身份证是否正确输入!'
             }
         });
-        $('#owername,#owerid').blur(function () {
+        $('.moneybasic').blur(function(){
+            require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
+                familygridfieldsbinds.moneychange();
 
+            });
+
+        });
+        $('#owername,#owerid').blur(function () {
             if ($('#familymembersgrid').datagrid('getRows').length == 0) {
                 require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
                     $('#formcontentpanel').scrollTo($('#familymembersdiv'));
@@ -37,6 +43,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
                     require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                         familygridfieldsbinds.personidbind(editIndex);
+                        familygridfieldsbinds.namebind(editIndex);
                     });
                 });
             } else {
@@ -55,6 +62,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
         function endEditing(){
             if (editIndex == undefined){return true}
             if ($('#familymembersgrid').datagrid('validateRow', editIndex)){
+
                 $('#familymembersgrid').datagrid('endEdit', editIndex);
                 editIndex = undefined;
                 return true;
@@ -72,12 +80,10 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                     if (endEditing()){
                         $('#familymembersgrid').datagrid('selectRow', index)
                             .datagrid('beginEdit', index);
-
                         require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                             familygridfieldsbinds.personidbind(index);
+                            familygridfieldsbinds.namebind(index);
                         });
-
-
                         editIndex = index;
                     } else {
                         $('#familymembersgrid').datagrid('selectRow', editIndex);
@@ -124,8 +130,27 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
         $('#imgwin_cancel').bind('click', function () {
             $('#imgwin').window('close');
         });
+        $('#imgwin_submit').bind('click', function () {
+            require(['jqueryplugin/jquery-form'],function(AjaxFormjs){
+                var success=function(data, jqForm, options)
+                {
+                    $('#personimg').attr('src', data.filepath);
+                    $('#imgwin').window('close');
+                };
+                var options = {
+                    //target:        '#output1',   // target element(s) to be updated with server response
+                    //beforeSubmit:  showRequest,  // pre-submit callback
+                    dataType:"json",
+                    success: success,  // post-submit callback
+                    timeout:   3000
+                };
+                $('#personimg_form').ajaxForm(options).submit() ;
+
+            });
+        });
+
         $('#newfamilymemer_btn').bind('click', function () {
-            $('#familymembersgrid').datagrid('appendRow', {status: 'P', owername: '', owership: '其它'});
+            $('#familymembersgrid').datagrid('appendRow', {name: 'jack', relationship: '其它'});
             var editIndex = $('#familymembersgrid').datagrid('getRows').length - 1;
             $('#familymembersgrid').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);

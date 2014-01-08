@@ -3,17 +3,27 @@
         <table class="formtable">
             <tr>
                 <td>住房性质:</td>
-                <td><input  type="text" name="name" ></td>
+                <td><input  type="text" name="houseproperties"
+                            class="easyui-combobox lazy-combobox"
+                            searchtype="dbglhouseproperties"
+                            data-options="valueField: 'value',
+                                         textField: 'label' "></td>
                 <td>住房结构:</td>
-                <td><input  type="text" name="email" ></td>
-                <td>住房人均建筑面积:</td>
-                <td><input  type="text" name="email" ></td>
+                <td><input  type="text" name="housestructure"
+                            class="easyui-combobox lazy-combobox"
+                            searchtype="dbglhousestructure"
+                            data-options="valueField: 'value',
+                                         textField: 'label' "></td>
+                <td>住房总建筑面积:</td>
+                <td><input  type="text" name="housearea" ></td>
             </tr>
             <tr>
+                <td>住房人均建筑面积:</td>
+                <td><input  type="text" name="houseaveragearea" ></td>
                 <td>住房总使用面积(㎡):</td>
-                <td><input type="text" name="email" data-options="required:true"></td>
+                <td><input type="text" name="houseusearea" ></td>
                 <td>住房人均使用面积(㎡):</td>
-                <td><input type="text" name="email" data-options="required:true"></td>
+                <td><input type="text" name="houseaverageusearea" ></td>
             </tr>
 
         </table>

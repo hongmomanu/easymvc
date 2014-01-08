@@ -11,7 +11,12 @@
             <thead>
             <tr>
                 <th data-options="field:'name',width:90,align:'center',editor:'text'">姓名</th>
-                <th data-options="field:'personid',width:120,align:'right',editor:'text'">身份证</th>
+                <th data-options="field:'personid',width:120,align:'right',editor:{
+                            type:'validatebox',
+                            options:{
+                                required:true
+                            }
+                        }">身份证</th>
                 <th data-options="field:'sex',width:60,editor:'text'">性别</th>
                 <th data-options="field:'birthday',width:90,align:'center',editor:'text'">出生日期</th>
                 <th data-options="field:'age',width:60,editor:'text'">年龄</th>

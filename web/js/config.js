@@ -694,10 +694,10 @@ var applyformviews={
         'dbglfamilybasicfieldset',
         'dbglfamilymemberfieldset',
         'dbglfamilymoneyfieldset',
-        'dbglfamilyhousefieldset',/*
+        'dbglfamilyhousefieldset',
         'dbglfamilyinputfieldset',
         'dbglfamilyaffixfieldset',
-        'dbglfamilyapplyfieldset',*/
+        'dbglfamilyapplyfieldset',
         'dbglapplysubmitfieldset'
     ],
     'dbglalter':[
