@@ -107,7 +107,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         ]);
 
-        ('#divisiontree').combotree('setValue',divisionpath);
+        $('#divisiontree').val(divisionpath);
         $('#divisiontree').combotree({
             //url:'ajax/gettreedivision.jsp',
             method: 'get',
