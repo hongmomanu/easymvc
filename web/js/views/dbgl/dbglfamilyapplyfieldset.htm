@@ -1,0 +1,30 @@
+<fieldset><legend>业务申请信息</legend>
+    <div >
+        <table class="formtable">
+            <tr>
+                <td>现金收入累计月份:</td>
+                <td><input  type="text" name="icomemonth"
+                            class="easyui-combobox lazy-combobox"
+                            searchtype="dbglicomemonth"
+                            data-options="valueField: 'value',
+                                         textField: 'label' "></td>
+                <td>家庭总收入:</td>
+                <td><input  type="text" name="familyincome" id="familyincome"
+                            class="easyui-validatebox"
+                            data-options="required:true"></td>
+                <td>月人均收入:</td>
+                <td><input  type="text" name="averageincome" id="averageincome"
+                            class="easyui-validatebox"
+                            data-options="required:true"></td>
+
+            </tr>
+            <tr>
+                <td>申请救济金(元/月/人):</td>
+                <td><input  type="text" name="applymoney" class="easyui-validatebox" data-options="required:true"></td>
+
+            </tr>
+
+        </table>
+    </div>
+
+</fieldset>
