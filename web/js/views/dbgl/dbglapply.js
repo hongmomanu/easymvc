@@ -10,6 +10,11 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 message: '身份证不合法,请确认身份证是否正确输入!'
             }
         });
+
+        $('.affixfile').click(function(){
+            $('#affixwin').window('open');
+        });
+
         $('.moneybasic').blur(function(){
             require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                 familygridfieldsbinds.moneychange();
