@@ -6,20 +6,28 @@ define(function(){
     var a={
 
         render:function(parameters){
-            var me=this;
             $('#dbglacc,#dbedgeacc').tree({
                 //url:'tree_data.json'
                 onClick: function (node){
 
                     var tree=$(this);
+                    var me=this;
                     if(tree.tree('isLeaf', node.target)){
-                        if(!$('#tabs').tabs('exists',1)||this.nodeid!=node.id){
+
+                        if(!$('#tabs').tabs('exists',1)||me.nodeid!=node.id){
                             var folder=tree.attr('folder');
                             require(['commonfuncs/LookupItemName'],function(LookupItemName){
                                 var views=[node.value];
+                                var viewsjs=[];
                                 var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
-                                views=views.concat(applyformviews[lookupname]);
-                                var viewsjs=[].concat(applyformviewsjs[lookupname]);
+                                if(lookupname){
+                                    views=views.concat(applyformviews[lookupname]);
+                                    viewsjs=viewsjs.concat(applyformviewsjs[lookupname]);
+                                }
+                                //如果没有自定义js则加载默认js与view同名
+                                if(viewsjs.length==0){
+                                    viewsjs=[node.value];
+                                }
                                 for(var i=0;i<views.length;i++){
                                     views[i]='text!'+folder+views[i]+'.htm';
                                 }
@@ -54,7 +62,7 @@ define(function(){
                                     }
 
                                 });
-                                this.nodeid=node.id;
+                                me.nodeid=node.id;
                             });
 
                             /*parameters.LoadingMask.ajaxLoading();
