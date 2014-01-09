@@ -12,16 +12,22 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
         });
 
         $('.affixfile').click(function(){
+            //console.log(this);
+
             $('#affixwin').window('open');
+            $('#affixwin').window('window').clickitem=this;
+            var data=$('#affixwin').window('window').clickitem.formdata?
+                $('#affixwin').window('window').clickitem.formdata:[];
+            $('#affixfilegrid').datagrid('loadData',data);
         });
 
         $('.moneybasic').blur(function(){
             require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                 familygridfieldsbinds.moneychange();
-
             });
 
         });
+
         //#owername,
         $('#owerid').blur(function () {
             if ($('#familymembersgrid').datagrid('getRows').length == 0) {
@@ -98,19 +104,28 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
             }
         });
-        $('#divisiontree').combotree('loadData', [
+        /*$('#divisiontree').combotree('loadData', [
             {
                 id: 0,
                 text: '舟山市',
                 divisionpath: '舟山市',
                 "state": "closed"
             }
-        ]);
+        ]);*/
 
-        $('#divisiontree').val(divisionpath);
+
+
+
+
         $('#divisiontree').combotree({
-            //url:'ajax/gettreedivision.jsp',
+            url:'ajax/gettreedivision.jsp?onlychild=true&node=-1',
             method: 'get',
+            onLoadSuccess:function(){
+                if(!this.firstloaded){
+                    $('#divisiontree').combotree('setValue', divisionpath);
+                    this.firstloaded=true;
+                }
+            },
             onBeforeExpand: function (node) {
                 $('#divisiontree').combotree("tree").tree("options").url
                     = "ajax/gettreedivision.jsp?onlychild=true&node=" + node.id;
@@ -145,6 +160,19 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
                         $.messager.progress('close');	// hide progress bar while the form is invalid
                     }else{
+
+                            var affixfiles=[];
+                            var affixitems=$('.affixfile');
+                            for(var i=0;i<affixitems.length;i++){
+                                if(affixitems[i].formdata&&affixitems[i].formdata.length>0){
+                                    var formdata=affixitems[i].formdata;
+                                    var affixfileitem={};
+                                    affixfileitem[$(affixitems[i]).attr('type')]=formdata;
+                                    affixfiles.push(affixfileitem);
+                                }
+                            }
+                            affixfiles.push({"accountimgpath":[{'attachmentname':'照片',
+                                'attachmentpath':$('#personimg').attr('src')}]});
                             param.businesstype=businessTableType.dbgl;
                             param.userid=userid;
                             param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
@@ -192,6 +220,15 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             var filename= $(this).val().slice($(this).val().lastIndexOf("\\")+1);
             $('#uploadaffixname').val(filename);
         });
+        $('#affixwin_confirm').bind('click',function(){
+
+            $('#affixwin').window('window').clickitem.formdata=$('#affixfilegrid').datagrid('getRows');
+            require(['commonfuncs/UpdateItemNum'],function(UpdateItemNum){
+                UpdateItemNum.updateitemnum($($('#affixwin').window('window').clickitem),
+                    $('#affixfilegrid').datagrid('getRows').length,"(",")");
+                    $('#affixwin').window('close');
+            });
+        });
         $('#affixwin_submit').bind('click', function () {
             require(['jqueryplugin/jquery-form'],function(AjaxFormjs){
                 var success=function(data, jqForm, options)
@@ -210,6 +247,10 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 $('#affixwinimg_form').ajaxForm(options).submit() ;
 
             });
+        });
+
+        $('#affixwin_cancel').bind('click', function () {
+            $('#affixwin').window('close');
         });
 
         $('#newfamilymemer_btn').bind('click', function () {
