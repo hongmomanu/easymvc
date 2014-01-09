@@ -1,6 +1,8 @@
 define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
     function render(parameters) {
+        $.parser.parse($(parameters));
+
         $('#owerid').blur(function () {
             if ($('#familymembersgrid').datagrid('getRows').length == 0) {
                 require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
@@ -55,8 +57,6 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         }
 
-
-
         $('#familymembersgrid').datagrid({
             width: $('#familymembersdiv').width()-15,
             onClickRow:function(index, rowData){
@@ -94,9 +94,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         });
 
-        $.parser.parse($('#newfamilymemer_save'));
-        $.parser.parse($('#delfamilymemer_btn'));
-        $.parser.parse($('#newfamilymemer_btn'));
+
 
     }
 

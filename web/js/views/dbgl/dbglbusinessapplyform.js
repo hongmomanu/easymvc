@@ -7,25 +7,29 @@ define(function () {
         });
 
         $('#appformmore').click(function(){
-            ajaxloading.LoadingMask.ajaxLoading();
-            var length=$('#mainform').children().length;
-            var formname=applyformviews[lookupname][length];
-            formhtml='text!'+folder+formname+'.htm';
-            formjs=folder+formname;
-            require([formhtml,formjs],function(formhtml,formjs){
-                $('#mainform').append(formhtml);
-                var newform=$('#mainform').children()[length];
-                formjs.render(newform);
-                ajaxloading.LoadingMask.ajaxLoadEnd();
-                require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
-                    $('#formcontentpanel').scrollTo($(newform));
+            var isValid = $('#mainform').form('validate');
+            if(isValid){
+                ajaxloading.LoadingMask.ajaxLoading();
+                var length=$('#mainform').children().length;
+                var formname=applyformviews[lookupname][length];
+                formhtml='text!'+folder+formname+'.htm';
+                formjs=folder+formname;
+                require([formhtml,formjs],function(formhtml,formjs){
+                    $('#mainform').append(formhtml);
+                    var newform=$('#mainform').children()[length];
+                    formjs.render(newform);
+                    ajaxloading.LoadingMask.ajaxLoadEnd();
+                    require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
+                        $('#formcontentpanel').scrollTo($(newform));
+                    });
+                    if($('#mainform').children().length==applyformviews[lookupname].length){
+                        $('#appformmore').hide();
+                        $('#appformsubmit').show();
+                        $('#appformsubmitcancel').show();
+                    }
                 });
-                if($('#mainform').children().length==applyformviews[lookupname].length){
-                    $('#appformmore').hide();
-                    $('#appformsubmit').show();
-                    $('#appformsubmitcancel').show();
-                }
-            });
+            }
+
         });
 
         $('#appformsubmit').click(function(){
