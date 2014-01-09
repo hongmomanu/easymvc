@@ -1,6 +1,8 @@
 define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
     function render(parameters) {
+        //console.log(parameters);
+        $.parser.parse($(parameters));
         $.extend($.fn.validatebox.defaults.rules, {
             personid: {
                 validator: PersonidValidator.IdentityCodeValid,

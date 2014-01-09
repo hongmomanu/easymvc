@@ -42,7 +42,7 @@ define(function(){
                                         firstformjs=folder+firstform;
                                         require([firstformhtml,firstformjs],function(firstformhtml,firstformjs){
                                             $('#mainform').append(firstformhtml);
-                                            firstformjs.render();
+                                            firstformjs.render($('#mainform').children()[0]);
                                             parameters.LoadingMask.ajaxLoadEnd();
                                         });
                                     }
