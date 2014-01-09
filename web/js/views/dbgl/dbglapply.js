@@ -151,6 +151,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
         $('#appformsubmit').click(function(){
             //$('#tabs').tabs('close',1);
+            var type=$('#appformsubmit').attr('type');//获取type
             $.messager.progress();
             $('#mainform').form('submit', {
                 url: 'ajax/sendapply.jsp',

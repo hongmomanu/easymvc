@@ -18,7 +18,40 @@ define(function(){
                             var folder=tree.attr('folder');
                             require(['commonfuncs/LookupItemName'],function(LookupItemName){
                                 var views=[node.value];
-                                var viewsjs=[];
+                                var htmlfile='text!'+folder+node.value+'.htm';
+                                var jsfile=folder+node.value;
+                                parameters.LoadingMask.ajaxLoading();
+
+                                require([htmlfile,jsfile],function(htmlfile,jsfile){
+                                    var options= {
+                                        title: node.text,
+                                        content: htmlfile,
+                                        closable: true
+                                    };
+                                    if($('#tabs').tabs('exists',1)){
+
+                                        $('#tabs').tabs('select', 1);
+                                        $('#tabs').tabs('close',1);
+
+                                    }
+                                    $('#tabs').tabs('add',options);
+                                    var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
+                                    if(lookupname){
+                                        var firstform=applyformviews[lookupname][0];
+                                        firstformhtml='text!'+folder+firstform+'.htm';
+                                        firstformjs=folder+firstform;
+                                        require([firstformhtml,firstformjs],function(firstformhtml,firstformjs){
+                                            $('#mainform').append(firstformhtml);
+                                            firstformjs.render();
+                                            parameters.LoadingMask.ajaxLoadEnd();
+                                        });
+                                    }
+
+                                    jsfile.render(lookupname,folder,parameters);
+
+                                })
+
+                                /*var viewsjs=[];
                                 var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
                                 if(lookupname){
                                     views=views.concat(applyformviews[lookupname]);
@@ -61,7 +94,7 @@ define(function(){
                                         arguments[arguments.length-1-j].render();
                                     }
 
-                                });
+                                });*/
                                 me.nodeid=node.id;
                             });
 
