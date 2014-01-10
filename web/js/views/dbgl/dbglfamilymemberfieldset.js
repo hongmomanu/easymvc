@@ -94,7 +94,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             if (endEditing()){
                 $('#familymembersgrid').datagrid('acceptChanges');
                 var rows=$('#familymembersgrid').datagrid('getRows');
-                $('#FamilyPersons').val(rows.length);_
+                $('#FamilyPersons').val(rows.length);
                 require(['commonfuncs/FilterGridrow'],function(FilterGridrow){
                     var isenjoyedrows=FilterGridrow.ByFields(rows,['isenjoyed'],[isenjoyedtype.yes]);
                     var disabledlevelrows=FilterGridrow.ByFields(rows,['disabledlevel'],disabledtype.heavy);

@@ -22,10 +22,11 @@
                 <th data-options="field:'age',width:60,editor:'text'">年龄</th>
                 <th data-options="field:'isenjoyed',width:60,align:'center',editor:{
 							type:'combobox',
-							id:'isenjoyededitor',
 							options:{
 								valueField: 'value',
-                                width:60,
+								url:'ajax/getenumbytype.jsp?type=isenjoyed',
+								width:60,
+								required:true,
                                 textField: 'label'
 							}
 						}">是否享受</th>
@@ -41,7 +42,15 @@
                 <th data-options="field:'education',width:60,align:'center',editor:'text'">文化程度</th>
                 <th data-options="field:'political',width:60,align:'center',editor:'text'">政治面貌</th>
                 <th data-options="field:'disabledtype',width:60,align:'center',editor:'text'">残疾类别</th>
-                <th data-options="field:'disabledlevel',width:60,align:'center',editor:'text'">残疾等级</th>
+                <th data-options="field:'disabledlevel',width:60,align:'center',editor:{
+							type:'combobox',
+							options:{
+								valueField: 'value',
+								url:'ajax/getenumbytype.jsp?type=disabledlevel',
+								width:60,
+                                textField: 'label'
+							}
+						}">残疾等级</th>
                 <th data-options="field:'disablenum',width:60,align:'center',editor:'text'">残疾证号</th>
                 <th data-options="field:'workability',width:60,align:'center',editor:'text'">劳动能力</th>
                 <th data-options="field:'ispension',width:60,align:'center',editor:'text'">养老保险</th>

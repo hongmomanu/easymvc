@@ -33,13 +33,13 @@ define(function(){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'isenjoyed'});
 
             $(ed.target).combobox({
-                onShowPanel: function () {
+                /*onShowPanel: function () {
                     var searchtype = 'isenjoyed';
                     var url = 'ajax/getenumbytype.jsp?type=' + searchtype;
                     $(this).combobox('reload', url);
 
                 },
-
+*/
                 onSelect:function(item){
                      //选择事件
 

@@ -19,6 +19,18 @@ define( function () {
         $("#helpedtime").datebox("setValue", strDate_end);
 
 
+        var rows=$('#familymembersgrid').datagrid('getRows');
+        $('#FamilyPersons').val(rows.length);
+        require(['commonfuncs/FilterGridrow'],function(FilterGridrow){
+            var isenjoyedrows=FilterGridrow.ByFields(rows,['isenjoyed'],[isenjoyedtype.yes]);
+            var disabledlevelrows=FilterGridrow.ByFields(rows,['disabledlevel'],disabledtype.heavy);
+            var enjoyPersons=$('#enjoyPersons');
+            var disabledpersons=$('#disabledpersons');
+            if(enjoyPersons.length>0)enjoyPersons.val(isenjoyedrows.length);
+            if(disabledpersons.length>0)disabledpersons.val(disabledlevelrows.length);
+        });
+
+
 
 
     }
