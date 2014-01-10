@@ -42,6 +42,7 @@ h2 {
 .formtable td {
     border-right: 1px solid #ADD8E6;
     border-bottom: 1px solid #ADD8E6;
+
     /*background: #fff;*/
 
     font-size:12px;
@@ -51,10 +52,16 @@ h2 {
     word-wrap:break-word;
     white-space:normal;
 }
-
+.formtdtext {
+    width: 13%;
+}
 .panel-body {
     position: relative;
     overflow-x: hidden;
+}
+.icon-view{
+
+    background:url('img/form_show.png') no-repeat;
 }
 .layout-split-proxy-h{
     position:absolute;
