@@ -7,7 +7,6 @@ define(function(){
 
         personidbind:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'personid'});
-            //$(ed.target).blur();
             $(ed.target).bind('propertychange change input',function () {
                 require(['commonfuncs/ShowBirthDay'], function (ShowBirthDay) {
                     var sex_birth=ShowBirthDay.showBirthday($(ed.target).val());
@@ -23,7 +22,6 @@ define(function(){
         },
         namebind:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'name'});
-            //$(ed.target).blur();
             $(ed.target).bind('propertychange change input',function () {
                 $('#owername').val($(ed.target).val());
             });
@@ -31,45 +29,30 @@ define(function(){
         },
         isenjoyedbind:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'isenjoyed'});
-
             $(ed.target).combobox({
-                /*onShowPanel: function () {
-                    var searchtype = 'isenjoyed';
-                    var url = 'ajax/getenumbytype.jsp?type=' + searchtype;
-                    $(this).combobox('reload', url);
-
-                },
-*/
                 onSelect:function(item){
-                     //选择事件
 
                 }
 
             });
 
-
-
-
         },
+        /*未使用的方法*/
         changevalue:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'name'});
             $(ed.target).val($('#owername').val());
             var edp = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'personid'});
             $(edp.target).val($('#owerid').val());
-
         },
         caculatehelpmoney:function(){
             if($('#averageincome').length>0){
                 var num=parseInt($('#FamilyPersons').val());
-
                 var familyincome= parseFloat($('#incomesum').val())+parseFloat($('#propertysum').val());
                 $('#averageincome').val((familyincome/12/num).toFixed(1));
                 $('#familyincome').val(familyincome);
-
                 var poorstandard=$('#poorstandard');
                 if(poorstandard.length>0){
                     var minpercent=0.4;
-
                     var helpmomey=parseInt(poorstandard.val())-$('#averageincome').val();
                     var disablednum=parseInt($('#disabledpersons').val());
                     var totalmoney=poorstandard.val()*disablednum;

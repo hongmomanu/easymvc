@@ -72,12 +72,9 @@ define(function () {
                     $('#tabs').tabs('close',1);
                 }
             });
-
-            //alert('提交开始');
         });
 
     }
-
     return {
         render: render
     };
