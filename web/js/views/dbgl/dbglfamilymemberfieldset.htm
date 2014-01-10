@@ -20,7 +20,15 @@
                 <th data-options="field:'sex',width:60,editor:'text'">性别</th>
                 <th data-options="field:'birthday',width:90,align:'center',editor:'text'">出生日期</th>
                 <th data-options="field:'age',width:60,editor:'text'">年龄</th>
-                <th data-options="field:'isenjoyed',width:60,align:'center',editor:'text'">是否享受</th>
+                <th data-options="field:'isenjoyed',width:60,align:'center',editor:{
+							type:'combobox',
+							id:'isenjoyededitor',
+							options:{
+								valueField: 'value',
+                                width:60,
+                                textField: 'label'
+							}
+						}">是否享受</th>
                 <th data-options="field:'noenjoyedreason',width:200,editor:'text'">不享受原因</th>
                 <th data-options="field:'persontype',width:60,align:'center',editor:'text'">人员类别</th>
                 <th data-options="field:'jobstatus',width:90,editor:'text'">职业状况</th>

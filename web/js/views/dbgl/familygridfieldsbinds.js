@@ -29,6 +29,28 @@ define(function(){
             });
 
         },
+        isenjoyedbind:function(index){
+            var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'isenjoyed'});
+
+            $(ed.target).combobox({
+                onShowPanel: function () {
+                    var searchtype = 'isenjoyed';
+                    var url = 'ajax/getenumbytype.jsp?type=' + searchtype;
+                    $(this).combobox('reload', url);
+
+                },
+
+                onSelect:function(item){
+                     //选择事件
+
+                }
+
+            });
+
+
+
+
+        },
         changevalue:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'name'});
             $(ed.target).val($('#owername').val());

@@ -945,3 +945,4 @@ var processRoleBtn=null;
 var processstatustype={"ok":"正常","change":"变更","logout":"注销"};
 var isenjoyedtype={"yes":"享受","no":"不享受"};
 var disabledtype={"heavy":"||一级,二级||"};
+disabledtype={"heavy":['一级','二级']};

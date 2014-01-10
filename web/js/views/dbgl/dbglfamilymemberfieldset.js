@@ -66,6 +66,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                         require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                             familygridfieldsbinds.personidbind(index);
                             familygridfieldsbinds.namebind(index);
+                            familygridfieldsbinds.isenjoyedbind(index);
                         });
                         editIndex = index;
                     } else {
@@ -77,24 +78,33 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
         });
 
         $('#newfamilymemer_btn').bind('click', function () {
-            $('#familymembersgrid').datagrid('appendRow', {name: 'jack', relationship: '其它'});
+            $('#familymembersgrid').datagrid('appendRow', {name: '', relationship: '其它'});
             var editIndex = $('#familymembersgrid').datagrid('getRows').length - 1;
             $('#familymembersgrid').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
+            $('#FamilyPersons').val($('#familymembersgrid').datagrid('getRows').length);
         });
 
         $('#delfamilymemer_btn').bind('click', function () {
             var editIndex = $('#familymembersgrid').datagrid('getRows').length - 1;
             $('#familymembersgrid').datagrid('deleteRow', editIndex);
+            $('#FamilyPersons').val($('#familymembersgrid').datagrid('getRows').length);
         });
         $('#newfamilymemer_save').bind('click', function () {
             if (endEditing()){
                 $('#familymembersgrid').datagrid('acceptChanges');
+                var rows=$('#familymembersgrid').datagrid('getRows');
+                $('#FamilyPersons').val(rows.length);_
+                require(['commonfuncs/FilterGridrow'],function(FilterGridrow){
+                    var isenjoyedrows=FilterGridrow.ByFields(rows,['isenjoyed'],[isenjoyedtype.yes]);
+                    var disabledlevelrows=FilterGridrow.ByFields(rows,['disabledlevel'],disabledtype.heavy);
+                    var enjoyPersons=$('#enjoyPersons');
+                    var disabledpersons=$('#disabledpersons');
+                    if(enjoyPersons.length>0)enjoyPersons.val(isenjoyedrows.length);
+                    if(disabledpersons.length>0)disabledpersons.val(disabledlevelrows.length);
+                });
             }
         });
-
-
-
     }
 
     return {
