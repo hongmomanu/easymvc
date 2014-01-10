@@ -2,22 +2,33 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
     function render(parameters) {
         $.parser.parse($(parameters));
-        $('#familymembersgrid').datagrid('appendRow',
-            {
-                name: $('#owername').val(),
-                relationship:'户主',
-                personid: $('#owerid').val(),
-                isenjoyed:'享受',
-                persontype:'归正人员',
-                jobstatus:'',
-                bodystatus:'健康',
-                sex: '男',
-                birthday: '',
-                age:0,
-                monthlyincome: 0
+
+        require(['commonfuncs/ShowBirthDay'], function (ShowBirthDay) {
+            var sex_birth=ShowBirthDay.showBirthday($('#owerid').val());
+            if(sex_birth.birthday){
+                $('#familymembersgrid').datagrid('appendRow',
+                    {
+                        name: $('#owername').val(),
+                        relationship:'户主',
+                        birthday:sex_birth.birthday,
+                        personid: $('#owerid').val(),
+                        sex:sex_birth.sex,
+                        isenjoyed:'享受',
+                        persontype:'归正人员',
+                        jobstatus:'',
+                        bodystatus:'健康',
+
+                        age:(new Date()).getFullYear()-parseInt(sex_birth.birthday.split("-")[0]),
+                        monthlyincome: 0
+
+                    }
+                );
 
             }
-        );
+        })
+
+
+
 
         $('#owerid').blur(function () {
 
