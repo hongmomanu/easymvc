@@ -12,8 +12,8 @@ define(function(){
             params.divisionpath=divisionpath;
             params.start=(options.pageNumber-1)*options.pageSize;
             params.limit=options.pageSize;
-            params.totalname="total"     ;
-            params.rowsname="rows"        ;
+            params.totalname="total";
+            params.rowsname="rows";
         }});
 
     }
