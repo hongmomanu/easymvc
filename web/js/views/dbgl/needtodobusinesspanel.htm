@@ -20,7 +20,7 @@
             {
                 var id='view'+rowData.id;
                 var str='<div></div>';
-                str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;viewbtn&quot;>查看</a>');
+                str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;viewbtn&quot; style=&quot;display:none;&quot;>查看</a>');
                 str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;processbtn&quot;>流程</a>');
                 str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;submitbtn&quot;>提交</a>');
                 return str.html();
