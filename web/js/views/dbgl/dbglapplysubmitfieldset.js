@@ -33,6 +33,16 @@ define( function () {
 
 
 
+        $('#poorstandard').blur(function(){
+           //alert(2);
+            require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
+                familygridfieldsbinds.caculatehelpmoney();
+            });
+        });
+
+
+
+
     }
 
     return {

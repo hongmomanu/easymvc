@@ -46,6 +46,9 @@ define(function(){
                                             parameters.LoadingMask.ajaxLoadEnd();
                                         });
                                     }
+                                    else{
+                                        parameters.LoadingMask.ajaxLoadEnd();
+                                    }
 
                                     jsfile.render(lookupname,folder,parameters);
 

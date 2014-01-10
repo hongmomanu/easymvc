@@ -58,13 +58,42 @@ define(function(){
             $(edp.target).val($('#owerid').val());
 
         },
-        moneychange:function(){
-            var inputs=$('.moneybasic');
+        caculatehelpmoney:function(){
+            if($('#averageincome').length>0){
+                var num=parseInt($('#FamilyPersons').val());
+
+                var familyincome= parseFloat($('#incomesum').val())+parseFloat($('#propertysum').val());
+                $('#averageincome').val((familyincome/12/num).toFixed(1));
+                $('#familyincome').val(familyincome);
+
+                var poorstandard=$('#poorstandard');
+                if(poorstandard.length>0){
+                    var minpercent=0.4;
+
+                    var helpmomey=parseInt(poorstandard.val())-$('#averageincome').val();
+                    var disablednum=parseInt($('#disabledpersons').val());
+                    var totalmoney=poorstandard.val()*disablednum;
+                    if(helpmomey<minpercent*parseFloat(poorstandard.val())){
+                        totalmoney+=(minpercent*parseFloat(poorstandard.val()))*(num-disablednum);
+                    }else{
+                        totalmoney+=helpmomey.toFixed(1)*(num-disablednum)
+                    }
+                    $('#totalhelpmoney').val(totalmoney.toFixed(1));
+
+
+                }
+
+            }
+        },
+        moneychange:function(cssname){
+            var inputs=$(cssname);
             var sum=0;
             for(var i=0;i<inputs.length;i++){
                 if(i<inputs.length-1)sum+=parseFloat($(inputs[i]).val());
-                else $(inputs[i]).val(sum);
+                else $(inputs[i]).val(sum.toFixed(1));
             }
+
+
 
 
         }

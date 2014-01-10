@@ -17,7 +17,13 @@
         <thead data-options="frozen:true">
         <tr>
             <th data-options="field:'itemid',width:210,align:'center',formatter:function(value,rowData,rowIndex)
-            {return '<a>查看</a>' }">业务操作</th>
+            {
+                var id='view'+rowData.id;
+                var str='<div></div>';
+                str=$(str).append('<a id=&quot;'+id+'&quot;>查看</a>');
+                return str.html();
+
+            }">业务操作</th>
 
         </tr>
         </thead>

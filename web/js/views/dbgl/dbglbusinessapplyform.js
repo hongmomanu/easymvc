@@ -69,6 +69,7 @@ define(function () {
                 },
                 success: function(){
                     $.messager.progress('close');	// hide progress bar while submit successfully
+                    $('#tabs').tabs('close',1);
                 }
             });
 
