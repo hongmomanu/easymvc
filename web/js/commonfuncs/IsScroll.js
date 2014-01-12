@@ -11,7 +11,7 @@ define(function(){
             if(eDiv.css("overflow-y")!="hidden"
                 &&eDiv.css("overflow-y")!="visible"
                 &&eDiv.css("scroll")!="no"
-                &&eDiv.attr("scrollHeight")>eDiv.attr("clientHeight"))
+                &&eDiv.prop("scrollHeight")>eDiv.prop("clientHeight"))
             {
                 return true
             }else {

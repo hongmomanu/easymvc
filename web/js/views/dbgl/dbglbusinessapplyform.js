@@ -9,7 +9,10 @@ define(function () {
         $('#appformmore').click(function(){
             var isValid = $('#mainform').form('validate');
             if(isValid){
-                ajaxloading.ajaxLoading();
+                require(['commonfuncs/FormAdd'],function(FormAdd){
+                    FormAdd.addnewchild(lookupname,folder,ajaxloading,true,res,null);
+                });
+                /*ajaxloading.ajaxLoading();
                 var length=$('#mainform').children().length;
                 var formname=applyformviews[lookupname][length];
                 formhtml='text!'+folder+formname+'.htm';
@@ -27,7 +30,7 @@ define(function () {
                         $('#appformsubmit').show();
                         $('#appformsubmitcancel').show();
                     }
-                });
+                });*/
             }
 
         });
