@@ -1,0 +1,55 @@
+
+<div class="easyui-panel" id="formcontentpanel" title="低保户信息" data-options="fit:true"  >
+    <div style="padding:10px 30px 30px 30px;" >
+        <form id="mainform" method="post">
+        </form>
+    </div>
+    <div style="text-align:center;padding:5px">
+        <a  id="appformmore" class="easyui-linkbutton" type="低保">更多</a>
+        <a  id="appformsubmit" class="easyui-linkbutton" type="低保" style="display: none">提交</a>
+        <a  id="appformsubmitcancel" class="easyui-linkbutton" style="display: none">取消</a>
+    </div>
+
+    <div id="imgwin" class="easyui-window" title="选择头像" style="width:500px;height:160px"
+         data-options="iconCls:'icon-save',modal:true,closed:true">
+
+        <form id="personimg_form" method="POST" action="ajax/uploadfile.jsp">
+            <!--图片名称:<input class="easyui-validatebox" type="text" name="name" data-options="required:true"><br>-->
+            选择照片:<input type="file" name="filepath" />
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a  id="imgwin_submit" class="easyui-linkbutton" >提交</a>
+            <a id="imgwin_cancel"  class="easyui-linkbutton" >取消</a>
+        </div>
+
+    </div>
+
+    <div id="affixwin" class="easyui-window" title="选择头像" style="width:500px;height:260px"
+         data-options="iconCls:'icon-save',modal:true,closed:true">
+
+        <form id="affixwinimg_form" method="POST" action="ajax/uploadfile.jsp">
+            <!--图片名称:<input class="easyui-validatebox" type="text" name="name" data-options="required:true"><br>-->
+            照片名称:<input type="text" id="uploadaffixname" name="filename" /><br>
+            选择照片:<input type="file" id="uploadaffixdialog" name="filepath" />
+        </form>
+
+        <div style="text-align:center;padding:5px">
+            <a  id="affixwin_submit" class="easyui-linkbutton" >上传</a>
+            <a id="affixwin_cancel"  class="easyui-linkbutton" >取消</a>
+            <a id="affixwin_confirm"  class="easyui-linkbutton" >确定</a>
+        </div>
+        <table class="easyui-datagrid" id="affixfilegrid" title="附件列表" style="height:130px;"
+               data-options="singleSelect:true,collapsible:true">
+            <thead>
+            <tr>
+                <th data-options="field:'attachmentname',width:300">附件名</th>
+                <th data-options="field:'attachmentpath',width:100,hidden:true">附件路径</th>
+            </tr>
+            </thead>
+        </table>
+
+
+    </div>
+
+
+</div>

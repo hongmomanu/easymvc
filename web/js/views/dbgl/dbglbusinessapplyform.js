@@ -9,7 +9,7 @@ define(function () {
         $('#appformmore').click(function(){
             var isValid = $('#mainform').form('validate');
             if(isValid){
-                ajaxloading.LoadingMask.ajaxLoading();
+                ajaxloading.ajaxLoading();
                 var length=$('#mainform').children().length;
                 var formname=applyformviews[lookupname][length];
                 formhtml='text!'+folder+formname+'.htm';
@@ -18,7 +18,7 @@ define(function () {
                     $('#mainform').append(formhtml);
                     var newform=$('#mainform').children()[length];
                     formjs.render(newform);
-                    ajaxloading.LoadingMask.ajaxLoadEnd();
+                    ajaxloading.ajaxLoadEnd();
                     require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
                         $('#formcontentpanel').scrollTo($(newform));
                     });
@@ -62,7 +62,7 @@ define(function () {
                         param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
                         param.processstatustype=processstatustype.ok;
                         param.isprocess=true;
-                        param.affixfiles=$.toJSON([]);//附件数据未获取
+                        param.affixfiles=$.toJSON(affixfiles);//附件数据
 
                     }
                     return isValid;
