@@ -16,13 +16,17 @@
 			">
         <thead data-options="frozen:true">
         <tr>
-            <th data-options="field:'itemid',width:210,align:'center',formatter:function(value,rowData,rowIndex)
+            <th data-options="field:'itemid',width:280,align:'center',formatter:function(value,rowData,rowIndex)
             {
-                var id='view'+rowData.id;
+
                 var str='<div></div>';
-                str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;viewbtn&quot; style=&quot;display:none;&quot;>查看</a>');
-                str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;processbtn&quot;>流程</a>');
-                str=$(str).append('<a id=&quot;'+id+'&quot; class=&quot;submitbtn&quot;>提交</a>');
+
+                str=$(str).append('<a  class=&quot;viewbtn&quot; style=&quot;display:none;&quot;>查看</a>');
+                str=$(str).append('<a  class=&quot;alterbtn&quot; style=&quot;display:none;&quot;>修改</a>');
+                str=$(str).append('<a  class=&quot;processbtn&quot; style=&quot;display:none;&quot;>流程</a>');
+                str=$(str).append('<a  class=&quot;submitbtn&quot; style=&quot;display:none;&quot;>提交</a>');
+                str=$(str).append('<a  class=&quot;delbtn&quot; style=&quot;display:none;&quot;>删除</a>');
+                str=$(str).append('<a  class=&quot;cancelbtn&quot; style=&quot;display:none;&quot;>取消</a>');
                 return str.html();
 
             }">业务操作</th>
