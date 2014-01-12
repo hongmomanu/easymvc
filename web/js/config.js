@@ -708,7 +708,7 @@ var applyformviews={
         'dbglfamilyinputfieldset',
         'dbglfamilyaffixfieldset',
         'dbglfamilyapplyfieldset',
-        'dbglaltersubmitfieldset',
+        'dbglapplysubmitfieldset',
         'dbglapplyhistoryfieldset'
 
     ],

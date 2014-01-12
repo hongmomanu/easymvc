@@ -1,10 +1,15 @@
 define( function () {
 
-    function render(parameters) {
+    function render(parameters,res) {
         /**这里添加审批信息绑定事件**/
 
 
         $.parser.parse($(parameters));
+
+        if(res){
+            $('#mainform').form('load',res.form);
+        }
+
         var curr_time = new Date();
          var strDate = curr_time.getFullYear()+"-";
         strDate += curr_time.getMonth()+1+"-";

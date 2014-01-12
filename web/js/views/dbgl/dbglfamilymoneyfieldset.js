@@ -1,6 +1,6 @@
 define( function () {
 
-    function render(parameters) {
+    function render(parameters,res) {
         $('.moneybasic').blur(function(){
 
             require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
@@ -8,6 +8,9 @@ define( function () {
             });
 
         });
+        if(res){
+            $('#mainform').form('load',res.form);
+        }
     }
 
     return {

@@ -1,7 +1,29 @@
 define( function () {
 
-    function render(parameters) {
-        /**这里添加住房绑定事件**/
+    function render(parameters,res) {
+        /**这里添加事件**/
+
+        if(res){
+            var affixfileitem=$('.affixfile');
+            for(var j=0;j<affixfileitem.length;j++){
+                var affix=res.affixfile;
+                for(var i=0;i<affix.length;i++){
+                    if(affix[i].attachmenttype==$(affixfileitem[j]).attr("type")){
+                        affixfileitem[j].formdata=affix[i].results;
+                        (function(item,data){
+                            require(['commonfuncs/UpdateItemNum'],function(UpdateItemNum){
+                                UpdateItemNum.updateitemnum(item,
+                                    data,"(",")");
+                            });
+                        })($(affixfileitem[j]),affix[i].results.length);
+
+                        break;
+                    }
+                }
+            }
+
+        }
+
         $('#uploadaffixdialog').bind('change',function(){
             var filename= $(this).val().slice($(this).val().lastIndexOf("\\")+1);
             $('#uploadaffixname').val(filename);
@@ -11,6 +33,7 @@ define( function () {
 
             $('#affixwin').window('open');
             $('#affixwin').window('window').clickitem=this;
+            testobj=this;
             var data=$('#affixwin').window('window').clickitem.formdata?
                 $('#affixwin').window('window').clickitem.formdata:[];
             $('#affixfilegrid').datagrid('loadData',data);

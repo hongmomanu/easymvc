@@ -16,10 +16,21 @@ define(function(){
 
                         if(!$('#tabs').tabs('exists',1)||me.nodeid!=node.id){
                             var folder=tree.attr('folder');
-                            require(['commonfuncs/LookupItemName'],function(LookupItemName){
+                            var htmlfile='text!'+folder+node.value+'.htm';
+                            var jsfile=folder+node.value;
+                            var value=node.value;
+                            var title=node.text;
+                            require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
+                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder)
+                                me.nodeid=node.id;
+                            });
+                            /*require(['commonfuncs/LookupItemName'],function(LookupItemName){
                                 var views=[node.value];
                                 var htmlfile='text!'+folder+node.value+'.htm';
                                 var jsfile=folder+node.value;
+                                var value=node.value;
+
+
                                 parameters.LoadingMask.ajaxLoading();
 
                                 require([htmlfile,jsfile],function(htmlfile,jsfile){
@@ -54,7 +65,7 @@ define(function(){
 
                                 })
 
-                                /*var viewsjs=[];
+                                *//*var viewsjs=[];
                                 var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
                                 if(lookupname){
                                     views=views.concat(applyformviews[lookupname]);
@@ -97,9 +108,9 @@ define(function(){
                                         arguments[arguments.length-1-j].render();
                                     }
 
-                                });*/
+                                });*//*
                                 me.nodeid=node.id;
-                            });
+                            });*/
 
                             /*parameters.LoadingMask.ajaxLoading();
                             require(['text!'+node.value+'.htm',node.value], function(basicinfo,basicinfojs){

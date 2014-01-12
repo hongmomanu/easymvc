@@ -1,6 +1,6 @@
 define( function () {
 
-    function render(parameters) {
+    function render(parameters,res) {
         /**这里添加绑定事件**/
         $('.inputbasic').blur(function(){
             require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
@@ -14,6 +14,9 @@ define( function () {
             });
 
         });
+        if(res){
+            $('#mainform').form('load',res.form);
+        }
 
     }
 

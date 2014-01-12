@@ -1,6 +1,6 @@
 define(function () {
 
-    function render(parameters) {
+    function render(parameters,res) {
         /**这里添加住房绑定事件**/
         $(parameters).find(".lazy-combobox").combobox({
             onShowPanel: function () {
@@ -14,6 +14,10 @@ define(function () {
         require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
             familygridfieldsbinds.caculatehelpmoney();
         });
+
+        if(res){
+            $('#mainform').form('load',res.form);
+        }
 
 
     }

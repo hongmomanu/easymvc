@@ -1,6 +1,6 @@
 define(function () {
 
-    function render(lookupname,folder,ajaxloading) {
+    function render(lookupname,folder,ajaxloading,res) {
 
         $('#appformsubmitcancel').click(function(){
             $('#tabs').tabs('close',1);
@@ -17,7 +17,7 @@ define(function () {
                 require([formhtml,formjs],function(formhtml,formjs){
                     $('#mainform').append(formhtml);
                     var newform=$('#mainform').children()[length];
-                    formjs.render(newform);
+                    formjs.render(newform,res);
                     ajaxloading.ajaxLoadEnd();
                     require(['jqueryplugin/jquery-scrollto'], function (jqueryscroll) {
                         $('#formcontentpanel').scrollTo($(newform));

@@ -15,7 +15,7 @@ define(function(){
             $.ajax({
                 type: "post",        //使用get方法访问后台
                 dataType: "json",       //返回json格式的数据
-                url: "ajax/getallfuncsbyrule.jsp",   //要访问的后台地址
+                url: "ajax/getapplyformallbybid.jsp",   //要访问的后台地址
                 data: params,         //要发送的数据
                 complete :function(){},      //AJAX请求完成时
                 success: successFunc
