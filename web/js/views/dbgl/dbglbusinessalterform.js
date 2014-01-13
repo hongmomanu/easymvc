@@ -20,7 +20,7 @@ define(function () {
                             require(['commonfuncs/ButtonsEvent'],function(ButtonsEvent){
                                 ButtonsEvent.approvl_btns(clickitem,res);
                             });
-                        })
+                        });
                     }else{
                         $(btns[index]).hide();
                     }
