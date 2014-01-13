@@ -32,7 +32,7 @@ define(function () {
                                 //        pagesToScroll : 5,
                                 triggerFromBottom:'1',
                                 loader:'<div class="loader"></div>',
-                                debug  : true,
+                                debug  : false,
                                 targetElement : $('#formcontentpanel'),
                                 monitorTargetChange:false
 
