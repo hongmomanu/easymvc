@@ -17,15 +17,14 @@ define(function () {
                     params.rowsname = "rows";
                 }
             });
+        if(res){
+            $('#mainform').form('load',res.form);
+        }
 
     }
 
-    function rowformater(value, rowData, rowIndex) {
-        return '<a>查看</a>'
-    }
 
     return {
-        render: render,
-        rowformater: rowformater
+        render: render
     };
 });
