@@ -5,7 +5,7 @@
 define(function(){
 
     var a={
-        render:function(item,data){
+        render:function(item,record){
             require(['commonfuncs/AjaxForm'],function(ajaxform){
                 var callback=function(){
                     $.messager.confirm('提示信息', '已保存，是否留在该页面?', function(r){
@@ -16,7 +16,7 @@ define(function(){
                         }
                     });
                 }
-                ajaxform.submitForm('save',data,callback);
+                ajaxform.submitForm('save',record,callback);
             });
 
         }

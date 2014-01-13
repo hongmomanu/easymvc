@@ -5,7 +5,7 @@
 define(function(){
 
     var a={
-        render:function(item,data){
+        render:function(item,record){
             $('#tabs').tabs('close',1);
         }
 

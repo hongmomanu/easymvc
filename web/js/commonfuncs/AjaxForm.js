@@ -1,10 +1,10 @@
 /**
  * Created by jack on 14-1-7.
  */
-define(function(data){
+define(function(){
 
     var a={
-       submitForm:function(submitype,data,callback){
+       submitForm:function(submitype,record,callback){
            var url='';
            if(submitype==='new')url='ajax/sendapply.jsp';
            else if(submitype==='save')url='ajax/updateapply.jsp';
@@ -35,7 +35,7 @@ define(function(data){
                        var signatures=[];
                        if(submitype==='new')param.businesstype=$('#appformsubmit').attr('type');
                        if(submitype==='new')param.userid=userid;
-                       if(submitype==='save')param.businessid=data.form.id;
+                       if(submitype==='save')param.businessid=record.id;
                        if(submitype==='save')param.signatures=$.toJSON(signatures);
                        param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
                        if(submitype==='new')param.processstatustype=processstatustype.ok;
@@ -53,6 +53,22 @@ define(function(data){
            });
 
 
+       },
+       ajaxsend:function(method,type,url,params,success,complete){
+
+           $.messager.progress();
+           var compfunc=function(){
+               $.messager.progress('close');
+               if(complete)complete();
+           }
+           $.ajax({
+               type: method,
+               dataType: type,
+               url: url,
+               data: params,
+               complete :compfunc,
+               success: success
+           });
        }
 
 

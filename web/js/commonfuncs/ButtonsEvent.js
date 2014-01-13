@@ -17,7 +17,11 @@ define(function(){
                 businessid:businessid,
                 status:status
             };
-            var successFunc = callfunc;
+            $.messager.progress();
+            var successFunc = function(){
+                $.messager.progress('close');
+                if(callfunc)callfunc();
+            };
 
             $.ajax({
                 type: "post",

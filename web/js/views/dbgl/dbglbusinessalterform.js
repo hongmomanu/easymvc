@@ -18,7 +18,7 @@ define(function () {
                         $(btns[index]).click(function(){
                             var clickitem=this;
                             require(['commonfuncs/ButtonsEvent'],function(ButtonsEvent){
-                                ButtonsEvent.approvl_btns(clickitem,res);
+                                ButtonsEvent.approvl_btns(clickitem,res.record);
                             });
                         });
                     }else{
