@@ -109,7 +109,8 @@ define(function () {
                                             var htmlfile='text!'+folder+widgetname+'.htm';
                                             var jsfile=folder+widgetname;
                                             require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
-                                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,widgetname,folder,res);
+                                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,widgetname,
+                                                    folder,res);
 
                                             });
                                           //console.log(res);
