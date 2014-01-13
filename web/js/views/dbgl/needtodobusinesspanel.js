@@ -58,6 +58,7 @@ define(function () {
                                     $(alterbtns[index]).bind('click',function(){
                                         var businessid=rows[index]['businessid'];
                                         var sucfun=function(res){
+                                            res.record=rows[index];
                                             var widgetname="";
                                             var folder='';
                                             if(rows[index]['processstatustype']==processstatustype.ok){

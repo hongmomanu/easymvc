@@ -1,13 +1,8 @@
 
-<div class="easyui-panel" id="formcontentpanel" style="overflow: scroll" title="低保户信息" data-options="fit:true"  >
+<div class="easyui-panel" id="formcontentpanel" style="overflow-y: scroll;" title="低保户信息" data-options="fit:true"  >
     <div style="padding:10px 30px 30px 30px;" >
         <form id="mainform" method="post">
         </form>
-    </div>
-    <div style="text-align:center;padding:5px">
-        <a  id="appformmore" class="easyui-linkbutton" type="低保">更多</a>
-        <a  id="appformsubmit" class="easyui-linkbutton" type="低保" style="display: none">提交</a>
-        <a  id="appformsubmitcancel" class="easyui-linkbutton" style="display: none">取消</a>
     </div>
 
     <div id="imgwin" class="easyui-window" title="选择头像" style="width:500px;height:160px"
@@ -20,6 +15,7 @@
         <div style="text-align:center;padding:5px">
             <a  id="imgwin_submit" class="easyui-linkbutton" >提交</a>
             <a id="imgwin_cancel"  class="easyui-linkbutton" >取消</a>
+
         </div>
 
     </div>
@@ -51,5 +47,23 @@
 
     </div>
 
+
+</div>
+<div id="form_btns">
+    <div style="text-align:center;padding:5px">
+        <a  id="appformmore" class="aprovlfuncs_btns" type="低保">更多</a>
+        <a action="appformsubmit_print"  class="aprovlfuncs_btns" >打印预览</a>
+        <a action="appformsubmit_process"  class="aprovlfuncs_btns" >流程跟踪</a>
+        <a action="appformsubmit_logwin"  class="aprovlfuncs_btns" >注销</a>
+        <a action="appformsubmit_chnage"  class="aprovlfuncs_btns" >变更</a>
+        <a action="appformsubmit_send"  class="aprovlfuncs_btns" >提交审批</a>
+        <a actipon="appformsubmit_cancelsend"  class="aprovlfuncs_btns" >取消提交</a>
+        <a action="appformsubmit_check"  class="aprovlfuncs_btns" namevalue="街道/乡镇审核" >审核</a>
+        <a action="appformsubmit_aprovl"  class="aprovlfuncs_btns" namevalue="区/县/市审批" >审批</a>
+        <a action="appformsubmit_signature"  class="aprovlfuncs_btns" namevalue="区/县/市审批" >电子签章</a>
+        <a action="appformsubmit_unsignature"  class="aprovlfuncs_btns" namevalue="区/县/市审批" >删除签章</a>
+        <a action="appformsubmit_save" class="aprovlfuncs_btns" style="display: none">保存</a>
+        <a action="appformsubmit_cancel" class="aprovlfuncs_btns" style="display: none">返回</a>
+    </div>
 
 </div>
