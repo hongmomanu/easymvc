@@ -5,9 +5,10 @@ define(function () {
 
     function render(parameters,res) {
         $.parser.parse($(parameters));
-        var options = $('#processhistorygrid').datagrid('options');
+        var grid=$(parameters).find('.easyui-datagrid');
+        var options = grid.datagrid('options');
         //console.log(options);
-        $('#processhistorygrid').datagrid(
+        grid.datagrid(
             {
                 onBeforeLoad: function (params) {
                     params.businessid =res.form.id;
