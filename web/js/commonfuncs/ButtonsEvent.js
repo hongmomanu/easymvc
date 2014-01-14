@@ -17,20 +17,15 @@ define(function(){
                 businessid:businessid,
                 status:status
             };
-            $.messager.progress();
             var successFunc = function(){
-                $.messager.progress('close');
                 if(callfunc)callfunc();
             };
 
-            $.ajax({
-                type: "post",
-                dataType: "json",
-                url: "ajax/changeapplystatus.jsp",
-                data: params,
-                complete :function(){},
-                success: successFunc
+            require(['commonfuncs/AjaxForm'],function(ajaxform){
+                ajaxform.ajaxsend("post","json","ajax/changeapplystatus.jsp",params,successFunc,null);
             });
+
+
         }
 
     }

@@ -6,16 +6,16 @@ define(function(){
 
     var a={
         render:function(item,data){
-            $.messager.confirm('确定提交申请?', '你正在试图提交申请.你想继续么?', function(r){
+            $.messager.confirm('确定取消提交?', '你正在试图取消提交.你想继续么?', function(r){
                 if (r){
                      var callback=function(){
-                        $.messager.alert('操作成功','提交申请成功!');
+                        $.messager.alert('操作成功','取消提交成功!');
                         var freshgrid=$('#businessgrid');
                         if(freshgrid.length>0)$('#businessgrid').datagrid('reload');
                         if($('#mainform').length>0)$('#tabs').tabs('close',1);
                      }
                      require(['commonfuncs/ButtonsEvent'],function(ButtonsEvent){
-                         ButtonsEvent.changeapplystatus(data.id,data.process,callback);
+                         ButtonsEvent.changeapplystatus(data.id,processdiction.stepzero,callback);
                      });
 
                 }
