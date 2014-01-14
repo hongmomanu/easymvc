@@ -1,8 +1,9 @@
 <fieldset ><legend>审批记录</legend>
     <div  title="审批记录信息信息">
-        <table class="easyui-datagrid" title="审批记录信息"
-               style="height:200px;position:relative;"
-               data-options="
+        <div class="siglecontent">
+            <table class="easyui-datagrid" title="审批记录信息"
+                   style="height:200px;position:relative;"
+                   data-options="
                rownumbers:true,
                singleSelect:true,
                url: 'ajax/getprocesshistorys.jsp',
@@ -11,18 +12,20 @@
 			   pageSize:10,
                showFooter: true">
 
-            <thead>
-            <tr>
-                <th data-options="field:'approvalname',width:120,align:'center',editor:'text'">审批名称</th>
+                <thead>
+                <tr>
+                    <th data-options="field:'approvalname',width:120,align:'center',editor:'text'">审批名称</th>
 
-                <th data-options="field:'approvalresult',width:150">审批结果</th>
-                <th data-options="field:'displayname',width:150,align:'center',editor:'text'">审批人</th>
-                <th data-options="field:'time',width:150">审批时间</th>
+                    <th data-options="field:'approvalresult',width:150">审批结果</th>
+                    <th data-options="field:'displayname',width:150,align:'center',editor:'text'">审批人</th>
+                    <th data-options="field:'time',width:150">审批时间</th>
 
-                <th data-options="field:'approvalopinion',width:200,align:'center'">审批意见</th>
-            </tr>
-            </thead>
-        </table>
+                    <th data-options="field:'approvalopinion',width:200,align:'center'">审批意见</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
         <table class="formtable">
             <tr>
                 <td class="formtdtext">制表时间:</td>
