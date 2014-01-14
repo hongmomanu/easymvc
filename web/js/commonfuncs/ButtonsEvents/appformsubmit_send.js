@@ -10,6 +10,7 @@ define(function(){
                 if (r){
                     //alert('confirmed: '+r);
 
+
                 }
             });
 

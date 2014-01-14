@@ -15,18 +15,15 @@ define(function(){
                             businessid:record.id
                         };
                         var successFunc = function(){
-
+                            $.messager.alert('操作成功','删除操作成功!');
+                            $('#businessgrid').datagrid('reload');
                         };
                         var complete=function(){
+
                         };
 
-                        $.ajax({
-                            type: "post",
-                            dataType: "json",
-                            url: "ajax/delbusinessbybid.jsp",
-                            data: params,
-                            complete :complete,
-                            success: successFunc
+                        require(['commonfuncs/AjaxForm'],function(ajaxform){
+                            ajaxform.ajaxsend("post","json","ajax/delbusinessbybid.jsp",params,successFunc,complete);
                         });
 
                     }else{
