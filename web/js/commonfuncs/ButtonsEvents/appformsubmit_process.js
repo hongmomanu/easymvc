@@ -18,6 +18,17 @@ define(function(){
                     $('body').append(div);
                     $('#processwin').prepend($(table).find('div .siglecontent').html());
 
+                    require(['jqueryplugin/raphael-min'],function(js){
+
+                        var paper = Raphael("process_vector", $('#process_vector').width(), 100);
+                        var ellipse1= paper.ellipse(50, 30, 50, 30);
+                        var text1=paper.text(45,30,'开始流程');
+                        var path1=paper.path('M100 28  L150 28 L150 25 L155 30 L150 35 L150 32 L100 32 Z');
+                        //var circle = paper.circle(50, 40, 10);
+                        //circle.attr("fill", "#f00");
+                        //circle.attr("stroke", "#fff");
+                    });
+
                     $('#processwin').window({
                         title: '流程状态',
                         width: 650,
