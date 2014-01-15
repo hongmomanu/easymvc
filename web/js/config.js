@@ -39,6 +39,7 @@ var formwidgettype={
     'dbglchange':'dbglbusinesschangeform',
     'dbglchangeclick':'dbglbusinesschangeclickform',
     'dbgllogout':'dbglbusinesslogoutform',
+    'dbgllogoutclick':'dbglbusinesslogoutclickform',
     'dbedgeapply':'dbedgebusinessapplyform' ,
     'dbedgealter':'dbedgebusinessalterform' ,
     'dbedgechange':'dbedgebusinesschangeform' ,
@@ -744,6 +745,17 @@ var applyformviews={
         'dbglfamilyaffixfieldset',
         'dbglfamilyapplyfieldset',
         'dbgllogoutsubmitfieldset',
+        'dbglapplyhistoryfieldset'
+
+    ],'dbgllogoutclick':[
+        'dbglfamilybasicfieldset',
+        'dbgllogoutsubmitfieldset',
+        'dbglfamilymemberfieldset',
+        'dbglfamilymoneyfieldset',
+        'dbglfamilyhousefieldset',
+        'dbglfamilyinputfieldset',
+        'dbglfamilyaffixfieldset',
+        'dbglfamilyapplyfieldset',
         'dbglapplyhistoryfieldset'
 
     ],'dbedgeapply':[

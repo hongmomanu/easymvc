@@ -23,10 +23,12 @@ define( function () {
         $("#helpbgtime").datebox("setValue", strDate);
         $("#helpedtime").datebox("setValue", strDate_end);
 
+        if($('#familymembersgrid').length>0){
+            var rows=$('#familymembersgrid').datagrid('getRows');
 
-        var rows=$('#familymembersgrid').datagrid('getRows');
+            $('#FamilyPersons').val(rows.length);
+        }
 
-        $('#FamilyPersons').val(rows.length);
         require(['commonfuncs/FilterGridrow'],function(FilterGridrow){
             var isenjoyedrows=FilterGridrow.ByFields(rows,['isenjoyed'],[isenjoyedtype.yes]);
             var disabledlevelrows=FilterGridrow.ByFields(rows,['disabledlevel'],disabledtype.heavy);

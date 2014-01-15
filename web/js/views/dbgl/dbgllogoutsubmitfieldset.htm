@@ -1,0 +1,60 @@
+<fieldset><legend>审批信息</legend>
+    <div>
+        <table class="formtable">
+            <tr>
+                <td class="formtdtext">低保标准(元):</td>
+                <td><input class="easyui-validatebox" type="text" name="poorstandard" value="0" id="poorstandard" data-options="required:true"></td>
+                <td class="formtdtext">救助证编号:</td>
+                <td><input class="easyui-validatebox" type="text" name="aidnum" data-options="required:true"></td>
+                <td class="formtdtext">救助开始日期:</td>
+                <td ><input class="easyui-datebox" id="helpbgtime" type="text" name="helpbgtime" data-options="required:true"></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">救助结束日期:</td>
+                <td><input class="easyui-datebox" type="text" id="helpedtime" name="helpedtime" data-options="required:false"></td>
+                <td class="formtdtext">享受人数:</td>
+                <td><input  id="enjoyPersons" type="text" name="enjoyednum" value="0" readonly ></td>
+                <td class="formtdtext">重残人数:</td>
+                <td><input  id="disabledpersons" type="text" value="0" name="disabledpersons" readonly ></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">总救助金额(元/月/户):</td>
+                <td><input class="easyui-validatebox" type="text" value="0" name="totalhelpmoney" id="totalhelpmoney" data-options="required:true"></td>
+                <td class="formtdtext">公示结束日期:</td>
+                <td colspan="3"><input class="easyui-datebox" type="text" name="publicityedtm"></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">救助原因:</td>
+                <td colspan="5"><textarea class="easyui-validatebox"  name="helpreason" data-options="required:true"  style="height:60px;width: 60%;"></textarea></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">注销时间:</td>
+                <td colspan="5"><input class="easyui-datebox" data-options="required:true" type="text" name="logoutdate"></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">注销原因:</td>
+                <td colspan="5"><textarea class="easyui-validatebox"  name="logoutreason" data-options="required:true"  style="height:60px;width: 60%;"></textarea></td>
+            </tr>
+            <tr>
+                <td class="formtdtext">社区/村意见:</td>
+                <td colspan="5">
+                    <textarea name="villageopinion" style="height:60px;width: 60%;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="formtdtext">街道/乡镇意见:</td>
+                <td colspan="5">
+                    <textarea name="townopinion" style="height:60px;width: 60%;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>民政局意见:</td>
+                <td colspan="5">
+                    <textarea name="civilopinion" style="height:60px;width: 60%;"></textarea>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+</fieldset>
