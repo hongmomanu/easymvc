@@ -38,14 +38,16 @@ define(function(){
                        param.isprocess=$('#appformsubmit').attr('isprocess');
                    }else if(submitype==='save'){
                        param.businessid=record.id;
+                       param.signatures=$.toJSON(signatures);
                    }else if(submitype==='savechange'){
                        param.businessid=record.id;
                        param.processstatustype=processstatustype.change;
                    }else if(submitype==='savelogout'){
                        param.businessid=record.id;
                        param.processstatustype=processstatustype.logout;
+
                    }
-                   param.signatures=$.toJSON(signatures);
+
                    param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
                    param.affixfiles=$.toJSON(affixfiles);//附件数据
 
