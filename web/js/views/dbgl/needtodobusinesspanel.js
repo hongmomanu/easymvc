@@ -7,6 +7,7 @@ define(function () {
         var type=null;
         require(['commonfuncs/BusinessGridCommon'],function(BusinessGridCommon){
             BusinessGridCommon.initbusinessgrid(type);
+
         });
 
     }

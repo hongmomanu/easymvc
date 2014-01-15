@@ -38,6 +38,7 @@ define(function(){
                     }
                     else{
                         LoadingMask.ajaxLoadEnd();
+
                         jsfile.render(lookupname,folder,LoadingMask,res);
                     }
 

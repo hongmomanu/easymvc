@@ -68,8 +68,22 @@ define(function(){
 
                 });
 
+            $('#businesstb .search,#businesstb .keyword').bind('click keypress',function(e){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+
+
+                $('#businessgrid').datagrid('load',{
+
+                    bgdate:$('#businesstb .bgdate').val(),
+                    eddate:$('#businesstb .eddate').val(),
+                    keyword:$('#businesstb .keyword').val()
+
+                })
+            });
+
 
         }
+
     }
 
     return a;
