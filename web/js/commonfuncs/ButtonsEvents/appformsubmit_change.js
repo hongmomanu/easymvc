@@ -12,15 +12,15 @@ define(function(){
             var businesstype=datares.record['businesstype'];
             var title=datares.record['owername'];
             if(businesstype==businessTableType.dbgl){
-                widgetname='dbglbusinesschangeform';
+                widgetname='dbglbusinesschangeclickform';
                 folder='views/dbgl/';
 
 
             }else if(businesstype==businessTableType.dbbyh){
-                widgetname='dbedgebusinesschangeform';
+                widgetname='dbedgebusinesschangeclickform';
                 folder='views/dbedge/';
             }else if(businesstype==businessTableType.disasterhelp){
-                widgetname='disasterhelpcalamitybusinesschangeform';
+                widgetname='disasterhelpcalamitybusinesschangeclickform';
                 folder='views/disaster/';
             }else{
                 $.messager.alert('警告','没有对应的模块!');

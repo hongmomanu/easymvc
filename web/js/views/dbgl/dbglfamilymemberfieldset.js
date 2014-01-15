@@ -22,15 +22,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                 success: successFunc
             });
 
-           /*$('#familymembersgrid').datagrid(
-               {
-                   url: 'ajax/getfamilymembersbybid.jsp',
-                   onBeforeLoad:function(param){
-                   param.businessid=res.form.id
-               }
 
-            });
-*/
         }else{
             require(['commonfuncs/ShowBirthDay'], function (ShowBirthDay) {
                 var sex_birth=ShowBirthDay.showBirthday($('#owerid').val());
@@ -61,18 +53,27 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
 
 
 
-        $('#owerid').blur(function () {
+        $('#owerid,#owername').bind('change propertychange input',function () {
 
+            require(['commonfuncs/ShowBirthDay'], function (ShowBirthDay) {
+                var sex_birth=ShowBirthDay.showBirthday($('#owerid').val());
                 $('#familymembersgrid').datagrid('updateRow',{
                     index: 0,
                     row: {
                         name: $('#owername').val(),
+                        birthday:sex_birth.birthday,
+                        sex:sex_birth.sex,
+                        age:(new Date()).getFullYear()-parseInt(sex_birth.birthday.split("-")[0]),
                         personid: $('#owerid').val()
                     }
                 });
 
+            });
+
 
         });
+
+
 
         var editIndex = undefined;
         function endEditing(){
@@ -113,6 +114,13 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             var editIndex = $('#familymembersgrid').datagrid('getRows').length - 1;
             $('#familymembersgrid').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
+
+            require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
+                familygridfieldsbinds.personidbind(editIndex);
+                familygridfieldsbinds.namebind(editIndex);
+                familygridfieldsbinds.isenjoyedbind(editIndex);
+            });
+
             $('#FamilyPersons').val($('#familymembersgrid').datagrid('getRows').length);
         });
 

@@ -8,8 +8,7 @@ define(function(){
            var url='';
            if(submitype==='new')url='ajax/sendapply.jsp';
            else if(submitype==='save')url='ajax/updateapply.jsp';
-           //var type=$('#appformsubmit').attr('type');//获取type
-           //var isprocess=$('#appformsubmit').attr('isprocess');//获取type
+           else if(submitype==='savechange')url='ajax/changeapply.jsp';
            var submit= function(param){
                var isValid = $('#mainform').form('validate');
                if (!isValid){
@@ -30,13 +29,19 @@ define(function(){
                    affixfiles.push({"accountimgpath":[{'attachmentname':'照片',
                        'attachmentpath':$('#personimg').attr('src')}]});
                    var signatures=[];
-                   if(submitype==='new')param.businesstype=$('#appformsubmit').attr('type');
-                   if(submitype==='new')param.userid=userid;
-                   if(submitype==='save')param.businessid=record.id;
-                   if(submitype==='save')param.signatures=$.toJSON(signatures);
+                   if(submitype==='new'){
+                       param.businesstype=$('#appformsubmit').attr('type');
+                       param.userid=userid;
+                       param.processstatustype=processstatustype.ok;
+                       param.isprocess=$('#appformsubmit').attr('isprocess');
+                   }else if(submitype==='save'){
+                       param.businessid=record.id;
+                   }else if(submitype==='savechange'){
+                       param.businessid=record.id;
+                       param.processstatustype=processstatustype.change;
+                   }
+                   param.signatures=$.toJSON(signatures);
                    param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));
-                   if(submitype==='new')param.processstatustype=processstatustype.ok;
-                   if(submitype==='new')param.isprocess=$('#appformsubmit').attr('isprocess');
                    param.affixfiles=$.toJSON(affixfiles);//附件数据
 
                }

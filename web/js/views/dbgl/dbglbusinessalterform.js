@@ -2,8 +2,16 @@ define(function () {
 
     function render(lookupname,folder,ajaxloading,res) {
 
-        $('#formcontentpanel').height($('#formcontentpanel').height()-30);
-        $('#aprovlfuncs_btns').height(30);
+
+
+        $('#formcontentpanel').panel({
+            onResize:function(width, height){
+
+                $('#formcontentpanel').height($('#formcontentpanel').height()-30);
+                $('#form_btns').height(30);
+            }
+        });
+
         var btns=$('.aprovlfuncs_btns');
         for(var i=0;i<btns.length;i++){
             (function (index){

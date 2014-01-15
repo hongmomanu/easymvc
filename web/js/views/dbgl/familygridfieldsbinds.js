@@ -10,12 +10,15 @@ define(function(){
             $(ed.target).bind('propertychange change input',function () {
                 require(['commonfuncs/ShowBirthDay'], function (ShowBirthDay) {
                     var sex_birth=ShowBirthDay.showBirthday($(ed.target).val());
-                    $('#owerid').val($(ed.target).val());
+                    var relationship=$('#familymembersgrid').datagrid('getEditor', {index:index,field:'relationship'});
+                    if($(relationship.target).val()==='户主')$('#owerid').val($(ed.target).val());
                     if(sex_birth.birthday){
                         var birthday = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'birthday'});
                         var sex=$('#familymembersgrid').datagrid('getEditor', {index:index,field:'sex'});
+                        var age=$('#familymembersgrid').datagrid('getEditor', {index:index,field:'age'});
                        $(birthday.target).val(sex_birth.birthday);
                        $(sex.target).val(sex_birth.sex);
+                       $(age.target).val((new Date()).getFullYear()-parseInt(sex_birth.birthday.split("-")[0]));
                     }
                 })
             });
@@ -23,7 +26,8 @@ define(function(){
         namebind:function(index){
             var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'name'});
             $(ed.target).bind('propertychange change input',function () {
-                $('#owername').val($(ed.target).val());
+                var relationship=$('#familymembersgrid').datagrid('getEditor', {index:index,field:'relationship'});
+                if($(relationship.target).val()==='户主')$('#owername').val($(ed.target).val());
             });
 
         },
