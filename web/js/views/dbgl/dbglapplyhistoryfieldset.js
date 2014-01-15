@@ -19,7 +19,7 @@ define(function () {
                 }
             });
         if(res){
-            $('#mainform').form('load',res.form);
+            //$('#mainform').form('load',res.form);
         }
 
     }
