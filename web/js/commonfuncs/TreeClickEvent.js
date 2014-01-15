@@ -5,13 +5,15 @@
 define(function(){
 
     var a={
-        ShowContent:function(htmlfile,jsfile,title,value,folder,res){
+        ShowContent:function(htmlfile,jsfile,title,value,folder,res,id){
             require(['commonfuncs/LookupItemName','commonfuncs/LoadingMask'],function(LookupItemName,LoadingMask){
                 LoadingMask.ajaxLoading();
                 require([htmlfile,jsfile],function(htmlfile,jsfile){
+
                     var options= {
                         title: title,
                         content: htmlfile,
+                        id:id,
                         closable: true
                     };
                     if($('#tabs').tabs('exists',1)){

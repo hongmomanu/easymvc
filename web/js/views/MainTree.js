@@ -13,125 +13,25 @@ define(function(){
                     var tree=$(this);
                     var me=this;
                     if(tree.tree('isLeaf', node.target)){
+                            //var selectid=$('#tabs').tabs('select',1).panel('options').id;
+                        var isnew=false;
+                        if($('#tabs').tabs('exists',1)){
+                            $('#tabs').tabs('select',1);
+                            isnew=$('#tabs').tabs('getSelected').panel('options').id!=node.id;
+                        }
+                        if(!$('#tabs').tabs('exists',1)||me.nodeid!=node.id||isnew){
 
-                        if(!$('#tabs').tabs('exists',1)||me.nodeid!=node.id){
                             var folder=tree.attr('folder');
                             var htmlfile='text!'+folder+node.value+'.htm';
                             var jsfile=folder+node.value;
                             var value=node.value;
                             var title=node.text;
                             require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
-                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder)
+
+                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
                                 me.nodeid=node.id;
                             });
-                            /*require(['commonfuncs/LookupItemName'],function(LookupItemName){
-                                var views=[node.value];
-                                var htmlfile='text!'+folder+node.value+'.htm';
-                                var jsfile=folder+node.value;
-                                var value=node.value;
 
-
-                                parameters.LoadingMask.ajaxLoading();
-
-                                require([htmlfile,jsfile],function(htmlfile,jsfile){
-                                    var options= {
-                                        title: node.text,
-                                        content: htmlfile,
-                                        closable: true
-                                    };
-                                    if($('#tabs').tabs('exists',1)){
-
-                                        $('#tabs').tabs('select', 1);
-                                        $('#tabs').tabs('close',1);
-
-                                    }
-                                    $('#tabs').tabs('add',options);
-                                    var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
-                                    if(lookupname){
-                                        var firstform=applyformviews[lookupname][0];
-                                        firstformhtml='text!'+folder+firstform+'.htm';
-                                        firstformjs=folder+firstform;
-                                        require([firstformhtml,firstformjs],function(firstformhtml,firstformjs){
-                                            $('#mainform').append(firstformhtml);
-                                            firstformjs.render($('#mainform').children()[0]);
-                                            parameters.LoadingMask.ajaxLoadEnd();
-                                        });
-                                    }
-                                    else{
-                                        parameters.LoadingMask.ajaxLoadEnd();
-                                    }
-
-                                    jsfile.render(lookupname,folder,parameters);
-
-                                })
-
-                                *//*var viewsjs=[];
-                                var lookupname=LookupItemName.lookupitemname(formwidgettype,node.value);
-                                if(lookupname){
-                                    views=views.concat(applyformviews[lookupname]);
-                                    viewsjs=viewsjs.concat(applyformviewsjs[lookupname]);
-                                }
-                                //如果没有自定义js则加载默认js与view同名
-                                if(viewsjs.length==0){
-                                    viewsjs=[node.value];
-                                }
-                                for(var i=0;i<views.length;i++){
-                                    views[i]='text!'+folder+views[i]+'.htm';
-                                }
-                                for(var i=0;i<viewsjs.length;i++){
-                                    viewsjs[i]=folder+viewsjs[i];
-                                }
-                                views=views.concat(viewsjs);
-
-                                parameters.LoadingMask.ajaxLoading();
-                                require(views, function(){
-                                    var basicinfo='<div></div>';
-                                    basicinfo=$(basicinfo).append(arguments[0])
-                                    for(var i=1;i<(arguments.length-viewsjs.length);i++){
-                                        $(basicinfo).find('#mainform').append(arguments[i]);
-                                    }
-                                    var options= {
-                                        title: node.text,
-                                        content: basicinfo.html(),
-                                        closable: true
-                                    };
-                                    if($('#tabs').tabs('exists',1)){
-
-                                        $('#tabs').tabs('select', 1);
-                                        $('#tabs').tabs('close',1);
-
-                                    }
-                                    $('#tabs').tabs('add',options);
-                                    parameters.LoadingMask.ajaxLoadEnd();
-
-                                    for(var j=0;j<viewsjs.length;j++){
-                                        arguments[arguments.length-1-j].render();
-                                    }
-
-                                });*//*
-                                me.nodeid=node.id;
-                            });*/
-
-                            /*parameters.LoadingMask.ajaxLoading();
-                            require(['text!'+node.value+'.htm',node.value], function(basicinfo,basicinfojs){
-                                var options= {
-                                    title: node.text,
-                                    content: basicinfo,
-                                    closable: true
-                                };
-                                if($('#tabs').tabs('exists',1)){
-
-                                    $('#tabs').tabs('select', 1);
-                                    $('#tabs').tabs('close',1);
-
-                                }
-                                $('#tabs').tabs('add',options);
-                                parameters.LoadingMask.ajaxLoadEnd();
-                                *//**//*
-                                basicinfojs.render();
-
-                            });
-                            this.nodeid=node.id;*/
                         }
 
                     }
