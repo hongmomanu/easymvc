@@ -5,7 +5,8 @@
 define(function(){
 
     var a={
-        render:function(item,data){
+        render:function(item,datares){
+            var data=datares.record;
             var businessid=data['businessid'];
             var sucfun=function(res){
                 res.record=data;

@@ -5,7 +5,8 @@
 define(function(){
 
     var a={
-        render:function(item,data){
+        render:function(item,datares){
+            var data=datares.record;
             $.messager.confirm('确定取消提交?', '你正在试图取消提交.你想继续么?', function(r){
                 if (r){
                      var callback=function(){

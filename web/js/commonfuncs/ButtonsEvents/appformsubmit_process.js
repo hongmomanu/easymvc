@@ -5,7 +5,8 @@
 define(function(){
 
     var a={
-        render:function(item,record){
+        render:function(item,datares){
+            var record=datares.record;
             this.record=record;
             var processswindiv=$('#processwin');
             if(processswindiv.length>0){

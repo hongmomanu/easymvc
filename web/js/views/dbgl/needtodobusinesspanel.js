@@ -40,7 +40,8 @@ define(function () {
                                            var clickitem=this;
                                            var record=rows[index];
                                            require(['commonfuncs/ButtonsEvent'],function(ButtonsEvent){
-                                               ButtonsEvent.approvl_btns(clickitem,record);
+                                               var data={record:record};
+                                               ButtonsEvent.approvl_btns(clickitem,data);
                                            });
                                        });
                                    })(i);

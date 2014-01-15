@@ -5,7 +5,8 @@
 define(function(){
 
     var a={
-        render:function(item,record){
+        render:function(item,datares){
+            var record=datares.record;
             $.messager.confirm('确定要删除此申请?', '你正在试图删除选中的 <a><font color="red">'+ record['displayname']+'</font></a> 的申请.你想继续么?', function(r){
                 if (r){
                     //alert('confirmed: '+r);

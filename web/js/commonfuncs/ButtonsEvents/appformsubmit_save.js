@@ -5,7 +5,8 @@
 define(function(){
 
     var a={
-        render:function(item,record){
+        render:function(item,datares){
+            var record=datares.record;
             require(['commonfuncs/AjaxForm'],function(ajaxform){
                 var callback=function(){
                     $.messager.confirm('提示信息', '已保存，是否留在该页面?', function(r){
