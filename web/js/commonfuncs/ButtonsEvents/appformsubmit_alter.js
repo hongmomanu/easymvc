@@ -64,9 +64,11 @@ define(function(){
                 var title=data['owername'];
                 var htmlfile='text!'+folder+widgetname+'.htm';
                 var jsfile=folder+widgetname;
+
                 require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
+                    var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
                     TreeClickEvent.ShowContent(htmlfile,jsfile,title,widgetname,
-                        folder,res);
+                        folder,res,null,businesstype);
 
                 });
                 //console.log(res);

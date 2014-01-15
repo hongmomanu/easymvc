@@ -4,9 +4,10 @@
 define(function () {
 
     function render(parameters) {
-        var type=null;
+        var type=processstatustype.change;
         require(['commonfuncs/BusinessGridCommon'],function(BusinessGridCommon){
             BusinessGridCommon.initbusinessgrid(type);
+
         });
 
     }

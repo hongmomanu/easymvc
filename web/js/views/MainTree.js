@@ -11,6 +11,7 @@ define(function(){
                 onClick: function (node){
 
                     var tree=$(this);
+                    var businesstype=tree.attr('businesstype')
                     var me=this;
                     if(tree.tree('isLeaf', node.target)){
                             //var selectid=$('#tabs').tabs('select',1).panel('options').id;
@@ -28,7 +29,7 @@ define(function(){
                             var title=node.text;
                             require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
 
-                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
+                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id,businesstype);
                                 me.nodeid=node.id;
                             });
 

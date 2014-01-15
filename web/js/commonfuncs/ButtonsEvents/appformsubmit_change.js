@@ -29,8 +29,9 @@ define(function(){
             var htmlfile='text!'+folder+widgetname+'.htm';
             var jsfile=folder+widgetname;
             require(['commonfuncs/TreeClickEvent'],function(TreeClickEvent){
+                var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
                 TreeClickEvent.ShowContent(htmlfile,jsfile,title,widgetname,
-                    folder,datares);
+                    folder,datares,null,businesstype);
 
             });
         }

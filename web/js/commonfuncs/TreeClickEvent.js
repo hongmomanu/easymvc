@@ -5,7 +5,7 @@
 define(function(){
 
     var a={
-        ShowContent:function(htmlfile,jsfile,title,value,folder,res,id){
+        ShowContent:function(htmlfile,jsfile,title,value,folder,res,id,businesstype){
             require(['commonfuncs/LookupItemName','commonfuncs/LoadingMask'],function(LookupItemName,LoadingMask){
                 LoadingMask.ajaxLoading();
                 require([htmlfile,jsfile],function(htmlfile,jsfile){
@@ -14,6 +14,7 @@ define(function(){
                         title: title,
                         content: htmlfile,
                         id:id,
+                        businesstype:businesstype,
                         closable: true
                     };
                     if($('#tabs').tabs('exists',1)){

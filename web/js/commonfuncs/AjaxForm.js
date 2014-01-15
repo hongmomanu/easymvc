@@ -31,7 +31,8 @@ define(function(){
                        'attachmentpath':$('#personimg').attr('src')}]});
                    var signatures=[];
                    if(submitype==='new'){
-                       param.businesstype=$('#appformsubmit').attr('type');
+                       var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
+                       param.businesstype=businesstype;
                        param.userid=userid;
                        param.processstatustype=processstatustype.ok;
                        param.isprocess=$('#appformsubmit').attr('isprocess');

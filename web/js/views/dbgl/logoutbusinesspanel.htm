@@ -1,0 +1,74 @@
+
+    <table id="businessgrid" class="easyui-datagrid" title="业务办理" style="width:100%;height:100%"
+           data-options="
+				singleSelect: true,
+				collapsible: true,
+				rownumbers: true,
+				method:'post',
+				remoteSort: false,
+				sortName:'time',
+                sortOrder:'desc',
+				fit:true,
+                toolbar:'#businesstb',
+				url: 'ajax/getneedtodobusinesses.jsp',
+				pagination:true,
+				pageSize:10
+			">
+        <thead data-options="frozen:true">
+        <tr>
+            <th data-options="field:'itemid',width:280,align:'center',formatter:function(value,rowData,rowIndex)
+            {
+
+                var str='<div></div>';
+
+                str=$(str).append('<a action=&quot;appformsubmit_alter&quot; class=&quot;viewbtn&quot; style=&quot;display:none;&quot;>查看</a>');
+                str=$(str).append('<a action=&quot;appformsubmit_alter&quot; class=&quot;alterbtn&quot; style=&quot;display:none;&quot;>修改</a>');
+                str=$(str).append('<a action=&quot;appformsubmit_process&quot; class=&quot;processbtn&quot; style=&quot;display:none;&quot;>流程</a>');
+                str=$(str).append('<a action=&quot;appformsubmit_send&quot; class=&quot;submitbtn&quot; style=&quot;display:none;&quot;>提交</a>');
+                str=$(str).append('<a action=&quot;appformsubmit_del&quot; class=&quot;delbtn&quot; style=&quot;display:none;&quot;>删除</a>');
+                str=$(str).append('<a action=&quot;appformsubmit_cancelsend&quot; class=&quot;cancelbtn&quot; style=&quot;display:none;&quot;>取消</a>');
+                return str.html();
+
+            }">业务操作</th>
+
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th data-options="field:'division',width:220,align:'right'">行政区划</th>
+            <th data-options="field:'owername',width:90,align:'right'">户主姓名</th>
+            <th data-options="field:'owerid',width:230">户主身份证</th>
+            <th data-options="field:'time',width:80,align:'center',sortable:true,hidden:true">救助开始日期</th>
+            <th data-options="field:'applytype',width:80,align:'center'">申请类别</th>
+            <th data-options="field:'poortype',width:80,align:'center'">分类管理</th>
+            <th data-options="field:'logoutdate',width:80,align:'center',sortable:true,hidden:true">注销日期</th>
+            <th data-options="field:'logoutreason',width:80,align:'center',sortable:true">注销原因</th>
+
+            <th data-options="field:'processstatus',width:80,align:'center',formatter:function(val,rowData,rowIndex)
+            {if(rowData['processstatustype']==processstatustype.ok){
+            if(val==processdiction.steptwo)return val+'中';
+                else return '已'+val;
+            }
+            else{
+            if(val==processdiction.stepzero)return '已审批'
+            else if(val==processdiction.steptwo)return val+'中';
+            else return '已'+val; }}">状态</th>
+            <th data-options="field:'approvaluser',width:80,align:'center'">审核人</th>
+            <th data-options="field:'approvaltime',width:80,align:'center'">审核日期</th>
+            <th data-options="field:'displayname',width:80,align:'center'">制单人</th>
+
+
+        </tr>
+        </thead>
+    </table>
+
+
+    <div id="businesstb" style="padding:5px;height:auto;vertical-align: middle;">
+
+            <a>开始时间: <input class="easyui-datebox" style="width:80px"></a>
+            <a>结束时间: <input class="easyui-datebox" style="width:80px"></a>
+            <a>快速搜索: <input class="easyui-validatebox" data-options="required:false" style="width:120px"></a>
+
+            <a  class="easyui-linkbutton" iconCls="icon-search" onclick="javascript:$('#businessgrid').datagrid('reload');">搜索</a>
+    </div>
+
