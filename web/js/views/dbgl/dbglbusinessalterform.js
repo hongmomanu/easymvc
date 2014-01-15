@@ -18,7 +18,6 @@ define(function () {
                         $(btns[index]).click(function(){
                             var clickitem=this;
                             require(['commonfuncs/ButtonsEvent'],function(ButtonsEvent){
-                                console.log(res);
                                 ButtonsEvent.approvl_btns(clickitem,res);
                             });
                         });
