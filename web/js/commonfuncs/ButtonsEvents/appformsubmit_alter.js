@@ -41,8 +41,10 @@ define(function(){
 
                 }else if(data['processstatustype']==processstatustype.change){
                     if(data['businesstype']==businessTableType.dbgl){
+                        folder='views/dbgl/';
                         widgetname='dbglbusinesschangeform';
                     }else if(data['businesstype']==businessTableType.dbbyh){
+                        folder='views/dbedge/';
                         widgetname='dbedgebusinesschangeform';
                     }else if(data['businesstype']==businessTableType.disasterhelp){
                         widgetname='disasterhelpcalamitybusinesschangeform';

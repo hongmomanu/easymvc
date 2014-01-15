@@ -28,8 +28,28 @@ define(function(){
                         });
 
                     }else{
-                        alert(2);
-                        //me.recoverapplybybid(businessid,grid.getStore());
+                        var params = {
+                            businessid:record.id,
+                            processstatustype:processstatustype.ok,
+                            processstatus:processdiction.stepthree
+                        };
+                        var successFunc = function (data, status,xhr) {
+                            $.messager.alert('操作成功','删除操作成功!');
+                            $('#businessgrid').datagrid('reload');
+
+                        };
+                        var failFunc = function (xhr, status,errthrow) {
+                            $.messager.alert('操作失败','检查web服务是否异常!');
+
+                        };
+                        var complete=function(){
+
+                        };
+
+                        require(['commonfuncs/AjaxForm'],function(ajaxform){
+                            ajaxform.ajaxsend("post","json","ajax/changeprocessstatustype.jsp",params,successFunc,complete,failFunc);
+                        });
+
                     }
 
                 }

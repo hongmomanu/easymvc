@@ -65,7 +65,7 @@ define(function(){
            });
 
        },
-       ajaxsend:function(method,type,url,params,success,complete){
+       ajaxsend:function(method,type,url,params,success,complete,errorfunc){
 
            $.messager.progress();
            var compfunc=function(){
@@ -78,6 +78,7 @@ define(function(){
                url: url,
                data: params,
                complete :compfunc,
+               error:errorfunc,
                success: success
            });
        }
