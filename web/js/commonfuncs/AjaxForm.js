@@ -9,6 +9,7 @@ define(function(){
            if(submitype==='new')url='ajax/sendapply.jsp';
            else if(submitype==='save')url='ajax/updateapply.jsp';
            else if(submitype==='savechange')url='ajax/changeapply.jsp';
+           else if(submitype==='savelogout')url='ajax/logoutapply.jsp';
            var submit= function(param){
                var isValid = $('#mainform').form('validate');
                if (!isValid){
@@ -39,6 +40,9 @@ define(function(){
                    }else if(submitype==='savechange'){
                        param.businessid=record.id;
                        param.processstatustype=processstatustype.change;
+                   }else if(submitype==='savelogout'){
+                       param.businessid=record.id;
+                       param.processstatustype=processstatustype.logout;
                    }
                    param.signatures=$.toJSON(signatures);
                    param.familymembers=$.toJSON($('#familymembersgrid').datagrid('getRows'));

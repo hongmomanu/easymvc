@@ -52,8 +52,10 @@ define(function(){
 
                 }else if(data['processstatustype']==processstatustype.logout){
                     if(data['businesstype']==businessTableType.dbgl){
+                        folder='views/dbgl/'
                         widgetname='dbglbusinesslogoutform';
                     }else if(data['businesstype']==businessTableType.dbbyh){
+                        folder='views/dbedge/';
                         widgetname='dbedgebusinesslogoutform';
                     }else if(data['businesstype']==businessTableType.disasterhelp){
                         widgetname='disasterhelpcalamitybusinesslogoutform';
