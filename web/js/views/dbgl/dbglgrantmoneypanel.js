@@ -4,9 +4,9 @@
 define(function () {
 
     function render(parameters) {
-        var type=processstatustype.change;
         var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
-        require(['commonfuncs/BusinessGridCommon'],function(BusinessGridCommon){
+        var type=businesstype;
+        require(['commonfuncs/BusinessGridCommon','jqueryplugin/jquery-formatDateTime'],function(BusinessGridCommon){
             BusinessGridCommon.initbusinessgrid(type,businesstype);
 
         });

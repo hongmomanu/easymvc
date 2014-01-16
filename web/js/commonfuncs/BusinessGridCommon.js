@@ -6,7 +6,7 @@ define(function(){
 
     var a={
 
-        initbusinessgrid:function(type){
+        initbusinessgrid:function(type,businesstype){
 
             $('#businessgrid').datagrid(
                 {
@@ -19,12 +19,25 @@ define(function(){
                     sortOrder:'desc',
                     fit:true,
                     toolbar:'#businesstb',
-                    url: 'ajax/getneedtodobusinesses.jsp',
                     pagination:true,
                     pageSize:10,
+                    rowStyler:function(index,row){
+                        if (row.processstatus===processdiction.stepthree){
+                            if(row.processstatustype===processstatustype.logout){
+                                return 'color:red;font-weight:bold;';
+                            }
+                            return 'color:green;font-weight:bold;';
+                        }else if(row.processstatus===processdiction.steptwo){
+                            return 'color:blue;font-weight:bold;';
+                        }else if(row.processstatus===processdiction.stepone){
+                            return 'color:gray;font-weight:bold;';
+                        }else{
+                            return 'color:pink;font-weight:bold;';
+                        }
+                    },
                     onBeforeLoad: function (params) {
                         var options = $('#businessgrid').datagrid('options');
-                        var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
+
                         params.businesstype = businesstype;
                         params.type=type;
                         params.divisionpath = divisionpath;
@@ -50,8 +63,9 @@ define(function(){
                                         {name:'name',value:rows[i]['processstatus']}).children,
                                         {name:'name',value:$(btns_arr[j][i]).text()});
                                     if(isfind){
+                                        var classname=$(btns_arr[j][i]).attr("class");
                                         $(btns_arr[j][i]).linkbutton({
-                                            iconCls: 'icon-alter'
+                                            iconCls: 'icon-'+classname
                                         });
                                         (function(index){
                                             $(btns_arr[j][i]).click(function(){
@@ -95,6 +109,12 @@ define(function(){
                 })
             });
 
+            $('#businesstb .newgrant').bind('click',function(e){
+                require(['views/dbgl/addnewgrantwin','jqueryplugin/jquery-formatDateTime'],function(js){
+                      js.render();
+                });
+
+            });
 
         }
 

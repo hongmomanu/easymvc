@@ -6,8 +6,9 @@ define(function () {
     function render(parameters) {
 
         var type=processstatustype.logout;
+        var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
         require(['commonfuncs/BusinessGridCommon'],function(BusinessGridCommon){
-            BusinessGridCommon.initbusinessgrid(type);
+            BusinessGridCommon.initbusinessgrid(type,businesstype);
 
         });
     }
