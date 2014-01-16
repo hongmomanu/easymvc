@@ -1,0 +1,34 @@
+{"images": [
+    {
+        "name": "社会救助",
+        "value":"menu_shjz",
+
+        "url": "img\/shjz.png"
+    },
+    {
+        "name": "核对业务管理",
+
+        "url": "img\/hdywgl.png"
+    },
+    {
+        "name": "部门核对",
+
+        "url": "img\/bmhd.png"
+    },
+    {
+        "name": "需求评估",
+
+        "url": "img\/xqpg.png"
+    },
+    {
+        "name": "老人数据库",
+
+        "url": "img\/oldmandb.png"
+    },
+    {
+        "name": "系统管理",
+        "value":"menu_qxgl",
+
+        "url": "img\/oldmandb.png"
+    }
+]}
