@@ -59,10 +59,22 @@ h2 {
     position: relative;
     overflow-x: hidden;
 }
-.icon-view{
-
+.icon-viewbtn{
     background:url('img/form_show.png') no-repeat;
 }
+.icon-processbtn{
+    background:url('img/process.png') no-repeat;
+}.icon-alterbtn{
+    background:url('img/change.png') no-repeat;
+}.icon-submitbtn{
+    background:url('img/busiapproval.png') no-repeat;
+}.icon-delbtn{
+    background:url('img/del.gif') no-repeat;
+}.icon-search{
+     background:url('img/busiquery.gif') no-repeat;
+ }.icon-new{
+     background:url('img/edit_add.png') no-repeat;
+ }
 .layout-split-proxy-h{
     position:absolute;
     width:2px;

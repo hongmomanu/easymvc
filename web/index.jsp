@@ -56,6 +56,7 @@
     </script>
     <script data-main="js/mainapp" src="require.js"></script>
     <script type="text/javascript"  src="js/commonfuncs/jquery.json-2.4.js"></script>
+
 </head>
 <body class="easyui-layout" id="mainlayoutpanel">
 <div region="north" border="true" class="cs-north" >
