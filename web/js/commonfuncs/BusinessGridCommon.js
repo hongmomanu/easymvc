@@ -7,10 +7,23 @@ define(function(){
     var a={
 
         initbusinessgrid:function(type){
-            var options = $('#businessgrid').datagrid('options');
+
             $('#businessgrid').datagrid(
                 {
+                    singleSelect: true,
+                    collapsible: true,
+                    rownumbers: true,
+                    method:'post',
+                    remoteSort: false,
+                    sortName:'time',
+                    sortOrder:'desc',
+                    fit:true,
+                    toolbar:'#businesstb',
+                    url: 'ajax/getneedtodobusinesses.jsp',
+                    pagination:true,
+                    pageSize:10,
                     onBeforeLoad: function (params) {
+                        var options = $('#businessgrid').datagrid('options');
                         var businesstype=$('#tabs').tabs('getSelected').panel('options').businesstype;
                         params.businesstype = businesstype;
                         params.type=type;
@@ -71,11 +84,12 @@ define(function(){
             $('#businesstb .search,#businesstb .keyword').bind('click keypress',function(e){
                 var keycode = (event.keyCode ? event.keyCode : event.which);
 
+                if($(this).attr("type")==='keyword'&&keycode!=13)return;
 
                 $('#businessgrid').datagrid('load',{
 
-                    bgdate:$('#businesstb .bgdate').val(),
-                    eddate:$('#businesstb .eddate').val(),
+                    bgdate:$('#businesstb .bgdate').datebox('getValue'),
+                    eddate:$('#businesstb .eddate').datebox('getValue'),
                     keyword:$('#businesstb .keyword').val()
 
                 })

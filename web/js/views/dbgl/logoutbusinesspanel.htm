@@ -1,19 +1,5 @@
 
-    <table id="businessgrid" class="easyui-datagrid" title="业务办理" style="width:100%;height:100%"
-           data-options="
-				singleSelect: true,
-				collapsible: true,
-				rownumbers: true,
-				method:'post',
-				remoteSort: false,
-				sortName:'time',
-                sortOrder:'desc',
-				fit:true,
-                toolbar:'#businesstb',
-				url: 'ajax/getneedtodobusinesses.jsp',
-				pagination:true,
-				pageSize:10
-			">
+    <table id="businessgrid" class="easyui-datagrid" title="业务办理" style="width:100%;height:100%">
         <thead data-options="frozen:true">
         <tr>
             <th data-options="field:'itemid',width:280,align:'center',formatter:function(value,rowData,rowIndex)
@@ -65,10 +51,11 @@
 
     <div id="businesstb" style="padding:5px;height:auto;vertical-align: middle;">
 
-            <a>开始时间: <input class="easyui-datebox" style="width:80px"></a>
-            <a>结束时间: <input class="easyui-datebox" style="width:80px"></a>
-            <a>快速搜索: <input class="easyui-validatebox" data-options="required:false" style="width:120px"></a>
+        <a>开始时间: <input class="easyui-datebox bgdate" style="width:80px"></a>
+        <a>结束时间: <input class="easyui-datebox eddate" style="width:80px"></a>
+        <a>快速搜索: <input class="easyui-validatebox keyword" type="keyword" data-options="required:false" style="width:120px"></a>
 
-            <a  class="easyui-linkbutton" iconCls="icon-search" onclick="javascript:$('#businessgrid').datagrid('reload');">搜索</a>
+        <a  class="easyui-linkbutton search"  iconCls="icon-search" >搜索</a>
     </div>
+
 
