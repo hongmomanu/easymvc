@@ -109,12 +109,22 @@ define(function(){
                 })
             });
 
-            $('#businesstb .newgrant').bind('click',function(e){
-                require(['views/dbgl/addnewgrantwin','jqueryplugin/jquery-formatDateTime'],function(js){
-                      js.render();
-                });
+            require(['commonfuncs/LookupItemName'],function(lookjs){
+                var isfind=lookjs.lookup(processRoleBtn,
+                        {name:"name",value:"资金发放"});
+                if(isfind){
+                    $('#businesstb .newgrant').bind('click',function(e){
+                        require(['views/dbgl/addnewgrantwin','jqueryplugin/jquery-formatDateTime'],function(js){
+                            js.render();
+                        });
+                    });
+                }else{
+                    $('#businesstb .newgrant').hide();
+                }
+            })
 
-            });
+
+
 
         }
 

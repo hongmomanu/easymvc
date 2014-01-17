@@ -6,7 +6,15 @@
                showFooter: true">
             <thead data-options="frozen:true">
             <tr>
-                <th data-options="field:'relationship',width:210,editor:'text'">与户主关系</th>
+                <th data-options="field:'relationship',width:100,editor:{
+							type:'combobox',
+							options:{
+								valueField: 'value',
+								url:'ajax/getenumbytype.jsp?type=dbglrelationship',
+								width:60,
+                                textField: 'label'
+							}
+						}">与户主关系</th>
             </tr>
             </thead>
             <thead>

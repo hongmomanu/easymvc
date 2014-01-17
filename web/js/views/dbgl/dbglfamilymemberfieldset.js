@@ -98,7 +98,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
                         require(['views/dbgl/familygridfieldsbinds'], function (familygridfieldsbinds) {
                             familygridfieldsbinds.personidbind(index);
                             familygridfieldsbinds.namebind(index);
-                            familygridfieldsbinds.isenjoyedbind(index);
+                            //familygridfieldsbinds.isenjoyedbind(index);
                         });
                         editIndex = index;
                     } else {

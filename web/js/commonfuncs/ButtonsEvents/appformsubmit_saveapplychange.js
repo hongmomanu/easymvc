@@ -18,7 +18,7 @@ define(function(){
                         }
                     });
                 }
-                ajaxform.submitForm('savechange',record,callback);
+                ajaxform.submitForm('savechange',datares,callback);
             });
 
         }

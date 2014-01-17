@@ -18,7 +18,7 @@ define(function(){
                         }
                     });
                 }
-                ajaxform.submitForm('savelogout',record,callback);
+                ajaxform.submitForm('savelogout',datares,callback);
             });
 
         }
