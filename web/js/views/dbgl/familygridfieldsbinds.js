@@ -32,14 +32,25 @@ define(function(){
 
         },
         isenjoyedbind:function(index){
-            var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'isenjoyed'});
+            /*var ed = $('#familymembersgrid').datagrid('getEditor', {index:index,field:'isenjoyed'});
+            var value=$(ed.target).combobox('getValue');
             $(ed.target).combobox({
-                onSelect:function(item){
-
+                onChange:function(item){
+                    require(['commonfuncs/FilterGridrow'],function(FilterGridrow){
+                        var rows=$('#familymembersgrid').datagrid('getRows');
+                        var isenjoyedrows=FilterGridrow.ByFields(rows,['isenjoyed'],[isenjoyedtype.yes]);
+                        var disabledlevelrows=FilterGridrow.ByFields(rows,['disabledlevel'],disabledtype.heavy);
+                        var enjoyPersons=$('#enjoyPersons');
+                        var disabledpersons=$('#disabledpersons');
+                        if(enjoyPersons.length>0)enjoyPersons.val(isenjoyedrows.length);
+                        if(disabledpersons.length>0)disabledpersons.val(disabledlevelrows.length);
+                    });
                 }
 
             });
 
+            $(ed.target).combobox('setValue',value);
+*/
         },
         /*未使用的方法*/
         changevalue:function(index){

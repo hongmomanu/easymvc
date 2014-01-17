@@ -9,7 +9,7 @@ define( function () {
 
         });
         if(res){
-            $('#mainform').form('load',res.form);
+            $(parameters).form('load',res.form);
         }
     }
 

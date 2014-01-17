@@ -10,7 +10,7 @@ define(['commonfuncs/PersonidValidator'], function (PersonidValidator) {
             }
         });
         if(res){
-            $('#mainform').form('load',res.form);
+            $(parameters).form('load',res.form);
             var affix=res.affixfile;
             for(var i=0;i<affix.length;i++){
                 if(affix[i].attachmenttype=="accountimgpath"){

@@ -5,6 +5,7 @@ define(function () {
 
     function render(parameters,res) {
         $.parser.parse($(parameters));
+        testobj=$(parameters);
         var grid=$(parameters).find('.easyui-datagrid');
         var options = grid.datagrid('options');
         //console.log(options);
@@ -19,7 +20,7 @@ define(function () {
                 }
             });
         if(res){
-            //$('#mainform').form('load',res.form);
+            $(parameters).form('load',res.form);
         }
 
     }

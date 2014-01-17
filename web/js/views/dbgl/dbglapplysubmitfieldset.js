@@ -7,7 +7,7 @@ define( function () {
         $.parser.parse($(parameters));
 
         if(res){
-            $('#mainform').form('load',res.form);
+            $(parameters).form('load',res.form);
         }
 
         require(['jqueryplugin/jquery-formatDateTime'],function(timeplugin){
