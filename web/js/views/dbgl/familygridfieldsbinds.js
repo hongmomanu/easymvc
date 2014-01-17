@@ -59,7 +59,7 @@ define(function(){
                     var minpercent=0.4;
                     var helpmomey=parseInt(poorstandard.val())-$('#averageincome').val();
                     var disablednum=parseInt($('#disabledpersons').val());
-                    var totalmoney=poorstandard.val()*disablednum;
+                    var totalmoney=parseFloat(poorstandard.val())*disablednum;
                     if(helpmomey<minpercent*parseFloat(poorstandard.val())){
                         totalmoney+=(minpercent*parseFloat(poorstandard.val()))*(num-disablednum);
                     }else{

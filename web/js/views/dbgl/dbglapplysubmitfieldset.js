@@ -15,9 +15,9 @@ define( function () {
             $("#helpbgtime").datebox("setValue", $.formatDateTime('yy-mm-dd', now));
             $("#helpedtime").datebox("setValue", $.formatDateTime('yy-mm-dd', new Date(now.setDate(now.getDate()+7))));
         });
-
+         var rows=[];
         if($('#familymembersgrid').length>0){
-            var rows=$('#familymembersgrid').datagrid('getRows');
+            rows=$('#familymembersgrid').datagrid('getRows');
 
             $('#FamilyPersons').val(rows.length);
         }

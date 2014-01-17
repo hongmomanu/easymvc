@@ -20,7 +20,7 @@ define(function () {
                     $.messager.alert('消息提示','资金发放成功');
                     $('#addnewgrantwin').dialog('close');
                     $('#businessgrid').datagrid('reload');
-                }
+                };
                 ajax.ajaxform(form,'ajax/grantmoneyform.jsp',onsubmit,success);
             });
         },
